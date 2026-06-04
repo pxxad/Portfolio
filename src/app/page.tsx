@@ -1,0 +1,29 @@
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Projects from "@/components/Projects";
+import Timeline from "@/components/Timeline";
+import Skills from "@/components/Skills";
+import DSA from "@/components/DSA";
+import GitHub from "@/components/GitHub";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+
+export default function Home() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow">
+        <Hero />
+        <About />
+        <Projects />
+        <Timeline />
+        <Skills />
+        <DSA />
+        <GitHub />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
+}
