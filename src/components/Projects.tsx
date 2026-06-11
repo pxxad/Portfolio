@@ -8,18 +8,18 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.15
     }
   }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 1,
       ease: [0.16, 1, 0.3, 1] as [number, number, number, number]
     }
   }
@@ -27,20 +27,20 @@ const itemVariants = {
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 bg-white relative">
+    <section id="projects" className="py-32 bg-slate-50 relative overflow-hidden border-y border-slate-100">
       {/* Subtle light background mesh */}
-      <div className="absolute inset-0 bg-[radial-gradient(#a8c5f0_1px,transparent_1px)] [background-size:32px_32px] opacity-15 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-24">
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-[10px] tracking-[0.2em] font-mono text-sky-blue uppercase font-bold mb-2"
+            transition={{ duration: 0.8 }}
+            className="text-xs tracking-[0.25em] font-semibold text-sky-600 uppercase mb-4"
           >
             Showcase
           </motion.p>
@@ -48,19 +48,19 @@ export default function Projects() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-5xl font-extrabold text-text-primary tracking-tight"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight"
           >
-            Launch-Grade Projects
+            Featured Projects
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xs md:text-sm text-text-secondary font-light mt-3 max-w-lg mx-auto leading-relaxed"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-sm md:text-base text-slate-500 font-medium mt-4 max-w-2xl mx-auto leading-relaxed"
           >
-            A curated collection of libraries, tools, and simulation environments I've built or contributed to.
+            A collection of tools, full-stack applications, and systems I've built so far.
           </motion.p>
         </div>
 
@@ -70,10 +70,10 @@ export default function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12"
         >
           {projectsData.map((project) => (
-            <motion.div key={project.id} variants={itemVariants}>
+            <motion.div key={project.id} variants={itemVariants} className="flex h-full">
               <ProjectCard project={project} />
             </motion.div>
           ))}

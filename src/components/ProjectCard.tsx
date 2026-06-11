@@ -36,57 +36,57 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     <motion.div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      className="relative glass-card rounded-[32px] overflow-hidden border border-white/50 shadow-md group flex flex-col h-full transition-shadow duration-500 hover:shadow-xl hover:bg-white/65"
-      whileHover={{ y: -6, scale: 1.01 }}
+      className="relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-sm group flex flex-col h-full w-full transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:border-slate-300"
+      whileHover={{ y: -8 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
     >
       {/* Dynamic Cursor Spotlight Overlay */}
       <motion.div
-        className="absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        className="absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{ background }}
       />
 
       {/* Visual Header/Thumbnail Area */}
       <div 
-        className="h-44 w-full relative flex items-center justify-center p-6 select-none"
-        style={{ background: project.gradient }}
+        className="h-48 w-full relative flex items-center justify-center p-6 select-none overflow-hidden"
       >
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
+        <div className="absolute inset-0 opacity-15" style={{ background: project.gradient }} />
+        <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
         
         {/* Project Initial Display Logo / Floating Title */}
         <motion.h4 
-          className="text-white text-2xl md:text-3xl font-extrabold font-mono tracking-widest drop-shadow-md text-center opacity-85 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500"
+          className="relative z-20 text-slate-800 text-2xl md:text-3xl font-black font-mono tracking-widest drop-shadow-sm text-center transition-all duration-500 group-hover:scale-105 group-hover:text-slate-900"
         >
           {project.title.toUpperCase()}
         </motion.h4>
       </div>
 
       {/* Project Content */}
-      <div className="p-6 md:p-8 flex flex-col flex-grow relative z-20">
+      <div className="p-8 flex flex-col flex-grow relative z-20 bg-white">
         
         {/* Category Pill */}
-        <div className="mb-3">
-          <span className="text-[9px] font-bold font-mono tracking-wider text-sky-blue bg-sky-blue/10 px-2.5 py-1 rounded-full uppercase">
+        <div className="mb-4">
+          <span className="text-[10px] font-bold font-mono tracking-wider text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full uppercase">
             {project.category}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-bold text-text-primary mb-2.5 group-hover:text-sky-blue transition-colors duration-300 font-mono">
+        <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-sky-600 transition-colors duration-300">
           {project.title}
         </h3>
 
         {/* Short & Long descriptions */}
-        <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-light mb-5 flex-grow">
+        <p className="text-sm text-slate-500 leading-relaxed font-medium mb-6 flex-grow">
           {project.longDescription}
         </p>
 
         {/* Tech Stack Badges */}
-        <div className="flex flex-wrap gap-1.5 mb-6">
+        <div className="flex flex-wrap gap-2 mb-8">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="text-[10px] font-mono text-text-secondary bg-black/[0.03] px-2 py-0.5 rounded-md border border-black/[0.05]"
+              className="text-[11px] font-semibold text-slate-600 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-200/60"
             >
               {tag}
             </span>
@@ -94,12 +94,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Action Links */}
-        <div className="flex items-center gap-4 mt-auto pt-4 border-t border-black/[0.04]">
+        <div className="flex items-center gap-4 mt-auto pt-5 border-t border-slate-100">
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-xs font-semibold font-mono text-text-secondary hover:text-text-primary transition-colors"
+            className="flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors"
           >
             <GitBranch className="w-4 h-4" /> Code
           </a>
@@ -108,9 +108,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-semibold font-mono text-sky-blue hover:text-sky-blue/80 transition-colors ml-auto"
+              className="flex items-center gap-2 text-sm font-semibold text-sky-600 hover:text-sky-500 transition-colors ml-auto"
             >
-              Live Demo <ExternalLink className="w-3.5 h-3.5" />
+              Live Demo <ExternalLink className="w-4 h-4" />
             </a>
           )}
         </div>

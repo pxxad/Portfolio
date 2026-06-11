@@ -1,9 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { GraduationCap, Code, BrainCircuit, HeartHandshake, Rocket } from "lucide-react";
-import { pokemonAssets } from "@/data/pokemon";
 
 const stories = [
   {
@@ -97,46 +95,6 @@ export default function About() {
             );
           })}
         </div>
-
-        {/* Bulbasaur Companion */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotate: 10 }}
-          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
-          className="absolute right-[-4%] bottom-[-50px] pointer-events-none hidden xl:block w-32 h-32"
-        >
-          <div className="relative w-full h-full group">
-            <Image
-              src={pokemonAssets.bulbasaur}
-              alt="Bulbasaur Companion"
-              width={128}
-              height={128}
-              className="object-contain drop-shadow-lg transition-transform duration-500 hover:scale-115"
-            />
-            {/* Tiny hover message */}
-            <div className="absolute right-full bottom-1/2 translate-y-1/2 mr-2 bg-white/90 px-2.5 py-1 rounded-xl shadow-md border border-emerald-500/10 text-[9px] font-mono text-emerald-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-              Bulba! 🌱
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Chikorita Mascot Small Placement */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 0.8, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="absolute left-[-100px] top-[10%] pointer-events-none hidden xl:block w-24 h-24"
-        >
-          <Image
-            src={pokemonAssets.chikorita}
-            alt="Chikorita Mascot"
-            width={96}
-            height={96}
-            className="object-contain opacity-40 hover:opacity-100 transition-opacity duration-300"
-          />
-        </motion.div>
       </div>
     </section>
   );

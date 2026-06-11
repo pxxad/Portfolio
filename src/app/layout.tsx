@@ -16,13 +16,13 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "B Prasad · Software Engineer",
   description: "B.Tech IT student at IIIT Lucknow. Building premium web apps, contributing to open source, and solving algorithmic problems.",
-  keywords: ["B Prasad", "IIIT Lucknow", "Software Engineer", "Developer Portfolio", "pxxad", "PB.DEV"],
+  keywords: ["B Prasad", "IIIT Lucknow", "Software Engineer", "Developer Portfolio", "pxxad", "PJB.DEV"],
   authors: [{ name: "B Prasad" }],
   openGraph: {
     title: "B Prasad · Software Engineer",
     description: "B.Tech IT student at IIIT Lucknow. Building premium web apps, contributing to open source, and solving algorithmic problems.",
     url: "https://pbdev.vercel.app",
-    siteName: "PB.DEV Portfolio",
+    siteName: "PJB.DEV Portfolio",
     locale: "en_US",
     type: "website",
   },

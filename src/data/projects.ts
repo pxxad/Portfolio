@@ -13,7 +13,7 @@ export interface Project {
 export const projectsData: Project[] = [
   {
     id: "portfolio-v2",
-    title: "PB.DEV V2",
+    title: "PJB.DEV V2",
     description: "Next-generation software engineer portfolio with glassmorphism, parallax effects, and custom animated backgrounds.",
     longDescription: "A premium Gen-Z developer portfolio built using Next.js, Tailwind CSS, and Framer Motion. Features a customized high-performance rendering pipeline, canvas particle animations, scroll-linked vertical timelines, and real-time GitHub integration.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Lenis"],

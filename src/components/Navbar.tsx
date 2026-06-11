@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -47,39 +48,42 @@ export default function Navbar() {
         transition={{ duration: 0.5 }}
       >
         <div className="max-w-6xl mx-auto px-6">
-          <nav className="flex items-center justify-between glass-navbar px-6 py-3 rounded-full">
+          <nav className="flex items-center justify-between glass-navbar px-6 py-4 rounded-full shadow-sm">
             {/* Logo */}
             <a
               href="#home"
               onClick={(e) => handleNavClick(e, "#home")}
-              className="text-base font-bold font-mono tracking-wider text-text-primary hover:text-sky-blue transition-colors flex items-center gap-1.5"
+              className="text-base font-bold font-mono tracking-wider text-text-primary dark:text-white hover:text-sky-blue transition-colors flex items-center gap-2"
             >
               <span className="w-2.5 h-2.5 rounded-full bg-sky-blue animate-pulse" />
-              PB.DEV
+              PJB.DEV
             </a>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden md:flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="px-4 py-1.5 rounded-full text-xs font-medium text-text-secondary hover:text-text-primary hover:bg-white/40 transition-all duration-200"
+                  className="px-4 py-1.5 rounded-full text-xs font-semibold text-text-secondary dark:text-slate-300 hover:text-text-primary dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all duration-200"
                 >
                   {item.label}
                 </a>
               ))}
             </div>
 
-            {/* Action CTA */}
-            <a
-              href="#contact"
-              onClick={(e) => handleNavClick(e, "#contact")}
-              className="hidden md:flex items-center gap-1 px-4 py-1.5 text-xs font-semibold rounded-full bg-sky-blue text-white hover:bg-sky-blue/90 shadow-sm transition-all duration-200 hover:shadow-md hover:translate-y-[-1px]"
-            >
-              Connect <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
+            {/* Action CTA & Theme */}
+            <div className="hidden md:flex items-center gap-5">
+              <ThemeToggle />
+              <a
+                href="#contact"
+                onClick={(e) => handleNavClick(e, "#contact")}
+                className="flex items-center gap-1.5 px-5 py-2 text-xs font-bold rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100 shadow-md transition-all duration-300 hover:scale-105"
+              >
+                Connect <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </div>
 
             {/* Mobile Hamburger */}
             <button

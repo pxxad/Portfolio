@@ -38,7 +38,7 @@ export const timelineData: TimelineEvent[] = [
   {
     year: "2026",
     title: "Next-Gen Frameworks",
-    subtitle: "Next.js & PB.DEV Portfolio Rebuild",
+    subtitle: "Next.js & PJB.DEV Portfolio Rebuild",
     description: "Designed a premium Gen-Z glassmorphism user experience from scratch. Fully adopted Next.js App Router, Framer Motion, and high-performance Web APIs.",
     category: "project"
   }

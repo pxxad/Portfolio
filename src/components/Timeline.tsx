@@ -10,13 +10,13 @@ import { pokemonAssets } from "@/data/pokemon";
 function EventIcon({ category }: { category: TimelineEvent["category"] }) {
   switch (category) {
     case "education":
-      return <GraduationCap className="w-4 h-4 text-sky-blue" />;
+      return <GraduationCap className="w-5 h-5 text-sky-600" />;
     case "opensource":
-      return <Award className="w-4 h-4 text-amber-600" />;
+      return <Award className="w-5 h-5 text-amber-500" />;
     case "project":
-      return <Briefcase className="w-4 h-4 text-rose-500" />;
+      return <Briefcase className="w-5 h-5 text-rose-500" />;
     default:
-      return <Calendar className="w-4 h-4 text-soft-violet" />;
+      return <Calendar className="w-5 h-5 text-indigo-500" />;
   }
 }
 
@@ -33,11 +33,11 @@ export default function Timeline() {
   const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section id="timeline" ref={containerRef} className="py-24 bg-brand-alt relative overflow-hidden">
+    <section id="timeline" ref={containerRef} className="py-32 bg-white relative overflow-hidden">
       {/* Decorative Blur */}
-      <div className="absolute top-[20%] right-[-10%] w-[300px] h-[300px] rounded-full bg-soft-violet/10 blur-[80px] -z-10 pointer-events-none" />
+      <div className="absolute top-[20%] right-[-10%] w-[400px] h-[400px] rounded-full bg-soft-blue/5 blur-[100px] -z-10 pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
         <div className="text-center mb-24">
@@ -45,8 +45,8 @@ export default function Timeline() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-[10px] tracking-[0.2em] font-mono text-sky-blue uppercase font-bold mb-2"
+            transition={{ duration: 0.8 }}
+            className="text-xs tracking-[0.25em] font-semibold text-sky-600 uppercase mb-4"
           >
             Milestones
           </motion.p>
@@ -54,30 +54,30 @@ export default function Timeline() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-5xl font-extrabold text-text-primary tracking-tight"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight"
           >
             My Timeline
           </motion.h2>
         </div>
 
-        {/* Timeline Layout Grid: left column contains the timeline, right contains sticky pokemon tower */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative">
+        {/* Timeline Layout Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start relative">
           
           {/* Timeline Column */}
           <div className="lg:col-span-8 relative">
             
             {/* Center Vertical Line (Background) */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-black/[0.05] -translate-x-1/2" />
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-slate-100 -translate-x-1/2" />
             
             {/* Growing Progress Line (Foreground) */}
             <motion.div
               style={{ scaleY, originY: 0 }}
-              className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-sky-blue -translate-x-1/2 z-10"
+              className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-sky-500 -translate-x-1/2 z-10"
             />
 
             {/* Timeline Cards */}
-            <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-16">
               {timelineData.map((event, index) => {
                 const isLeft = index % 2 === 0;
 
@@ -89,7 +89,7 @@ export default function Timeline() {
                     }`}
                   >
                     {/* Circle Node on Timeline Line */}
-                    <div className="absolute left-4 md:left-1/2 w-8 h-8 rounded-full border border-sky-blue/30 bg-white shadow-sm flex items-center justify-center -translate-x-1/2 z-20">
+                    <div className="absolute left-6 md:left-1/2 w-12 h-12 rounded-full border-[3px] border-white bg-slate-50 shadow-[0_0_0_1px_rgba(0,0,0,0.05),0_4px_12px_-4px_rgba(0,0,0,0.05)] flex items-center justify-center -translate-x-1/2 z-20">
                       <EventIcon category={event.category} />
                     </div>
 
@@ -98,29 +98,29 @@ export default function Timeline() {
                       initial={{ opacity: 0, x: isLeft ? -40 : 40, y: 10 }}
                       whileInView={{ opacity: 1, x: 0, y: 0 }}
                       viewport={{ once: true, margin: "-100px" }}
-                      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                      className={`w-full md:w-[45%] pl-10 md:pl-0 ${
-                        isLeft ? "md:text-right md:pr-10" : "md:text-left md:pl-10"
+                      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                      className={`w-full md:w-[45%] pl-16 md:pl-0 ${
+                        isLeft ? "md:text-right md:pr-14" : "md:text-left md:pl-14"
                       }`}
                     >
-                      <div className="glass-card p-6 md:p-8 rounded-[24px] border border-white/50 shadow-sm transition-all duration-300 hover:shadow-md hover:bg-white/65 hover:translate-y-[-2px] inline-block text-left w-full">
+                      <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:border-slate-300 hover:translate-y-[-4px] inline-block text-left w-full">
                         {/* Year Banner */}
-                        <div className="flex items-center gap-2 mb-3">
-                          <span className="text-[10px] font-bold font-mono tracking-wider text-sky-blue bg-sky-blue/10 px-2.5 py-1 rounded-full uppercase">
+                        <div className="flex items-center gap-2 mb-4">
+                          <span className="text-[11px] font-bold font-mono tracking-wider text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full uppercase">
                             {event.year}
                           </span>
                         </div>
 
                         {/* Title & Subtitle */}
-                        <h3 className="text-base font-bold text-text-primary mb-1 font-mono">
+                        <h3 className="text-xl font-bold text-slate-900 mb-1.5 font-sans tracking-tight">
                           {event.title}
                         </h3>
-                        <p className="text-xs font-mono font-medium text-text-secondary mb-3">
+                        <p className="text-xs font-semibold font-mono text-slate-500 mb-4 tracking-wide">
                           {event.subtitle}
                         </p>
 
                         {/* Description */}
-                        <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-light">
+                        <p className="text-sm text-slate-600 leading-relaxed font-medium">
                           {event.description}
                         </p>
                       </div>
@@ -132,24 +132,18 @@ export default function Timeline() {
           </div>
 
           {/* Sticky Pokemon Tower Stack Column (Desktop only, hidden on mobile) */}
-          <div className="lg:col-span-4 sticky top-36 hidden lg:flex flex-col items-center">
+          <div className="lg:col-span-4 sticky top-[30vh] hidden lg:flex flex-col items-center self-start h-fit">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="flex flex-col items-center gap-4 text-center group"
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col items-center gap-6 text-center group w-full"
             >
               <motion.div
-                animate={{
-                  y: [0, -10, 0]
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="w-48 h-64 relative cursor-pointer"
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="w-48 h-80 relative cursor-pointer opacity-90 hover:opacity-100 transition-all duration-300"
               >
                 <Image
                   src={pokemonAssets.pokemonTower}
@@ -160,8 +154,8 @@ export default function Timeline() {
                 />
               </motion.div>
               
-              <div className="glass-card px-4 py-2 rounded-2xl border border-white/60 shadow-sm max-w-[200px]">
-                <p className="text-[10px] font-mono text-text-secondary leading-normal">
+              <div className="bg-white/60 backdrop-blur-sm px-5 py-3 rounded-2xl border border-slate-200/60 shadow-sm max-w-[240px]">
+                <p className="text-[11px] font-semibold text-slate-500 leading-relaxed tracking-wide">
                   Balancing work, academics, and side projects like...
                 </p>
               </div>

@@ -19,7 +19,7 @@ const fallbackRepos: Repo[] = [
   {
     id: 1,
     name: "Portfolio",
-    description: "PB.DEV Portfolio V2 — Premium Gen-Z developer portfolio built using Next.js 15, Tailwind v4, and Framer Motion.",
+    description: "PJB.DEV Portfolio V2 — Premium Gen-Z developer portfolio built using Next.js 15, Tailwind v4, and Framer Motion.",
     html_url: "https://github.com/pxxad/Portfolio",
     stargazers_count: 0,
     forks_count: 0,
