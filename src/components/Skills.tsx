@@ -34,7 +34,7 @@ const cardVariants = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 bg-white relative overflow-hidden">
+    <section id="skills" className="py-24 bg-white dark:bg-brand-bg relative overflow-hidden transition-colors duration-300">
       {/* Background visual detail */}
       <div className="absolute top-[10%] left-[-5%] w-[250px] h-[250px] rounded-full bg-soft-blue/5 blur-[70px] -z-10 pointer-events-none" />
       <div className="absolute bottom-[20%] right-[-5%] w-[300px] h-[300px] rounded-full bg-soft-violet/5 blur-[80px] -z-10 pointer-events-none" />
@@ -81,7 +81,7 @@ export default function Skills() {
                 className="glass-card p-6 md:p-8 rounded-[32px] border border-white/50 shadow-sm flex flex-col transition-all duration-300 hover:shadow-md hover:bg-white/65 hover:translate-y-[-2px] group"
               >
                 {/* Category Header */}
-                <div className="flex items-center gap-3.5 mb-8 border-b border-black/[0.04] pb-4">
+                <div className="flex items-center gap-3.5 mb-8 border-b border-black/[0.04] dark:border-white/[0.06] pb-4">
                   <div className="w-10 h-10 rounded-2xl bg-sky-blue/10 flex items-center justify-center text-sky-blue transition-transform duration-300 group-hover:scale-110">
                     <Icon className="w-5 h-5" />
                   </div>
@@ -102,7 +102,7 @@ export default function Skills() {
                       </div>
                       
                       {/* Interactive Progress Bar */}
-                      <div className="h-1.5 w-full bg-black/[0.05] rounded-full overflow-hidden border border-black/[0.01]">
+                      <div className="h-1.5 w-full bg-black/[0.05] dark:bg-white/[0.08] rounded-full overflow-hidden border border-black/[0.01] dark:border-white/[0.03]">
                         <motion.div
                           className="h-full bg-gradient-to-r from-sky-blue to-soft-violet rounded-full"
                           initial={{ width: 0 }}

@@ -49,7 +49,7 @@ const profiles = [
 
 export default function DSA() {
   return (
-    <section id="dsa" className="py-24 bg-brand-alt relative overflow-hidden">
+    <section id="dsa" className="py-24 bg-brand-alt relative overflow-hidden transition-colors duration-300">
       {/* Glow effect matching Ash Aura */}
       <div className="absolute right-[10%] top-[20%] w-[250px] h-[250px] rounded-full bg-sky-blue/20 blur-[90px] -z-10 pointer-events-none" />
       <div className="absolute left-[5%] bottom-[20%] w-[180px] h-[180px] rounded-full bg-amber-300/15 blur-[70px] -z-10 pointer-events-none" />
@@ -163,7 +163,7 @@ export default function DSA() {
         </div>
 
         {/* Visual Topic Progression Path */}
-        <div className="mt-20 border-t border-black/[0.04] pt-16">
+        <div className="mt-20 border-t border-black/[0.04] dark:border-white/[0.06] pt-16">
           <h4 className="text-center text-xs font-mono tracking-[0.2em] text-text-secondary uppercase mb-12 font-semibold flex items-center justify-center gap-2">
             <Milestone className="w-4 h-4 text-sky-blue" /> Solving Path
           </h4>
@@ -178,7 +178,7 @@ export default function DSA() {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="glass-card p-6 rounded-[24px] border border-white/50 shadow-sm transition-all duration-300 hover:bg-white/65 hover:shadow-md hover:translate-y-[-2px] relative group"
               >
-                <span className="absolute top-4 right-4 text-2xl font-extrabold font-mono text-black/[0.04] group-hover:text-sky-blue/10 transition-colors">
+                <span className="absolute top-4 right-4 text-2xl font-extrabold font-mono text-black/[0.04] dark:text-white/[0.06] group-hover:text-sky-blue/10 transition-colors">
                   {step.step}
                 </span>
                 <h5 className="text-sm font-bold text-text-primary font-mono mb-2">

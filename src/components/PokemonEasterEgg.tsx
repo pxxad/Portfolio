@@ -94,14 +94,14 @@ export default function PokemonEasterEgg() {
         <AnimatePresence>
           {(isHovered || isWaterGunActive) && (
             <motion.div
-              className="absolute bottom-full right-1/2 translate-x-1/2 mb-4 bg-white/95 dark:bg-[#171a22]/95 backdrop-blur-md px-4 py-2 rounded-2xl border border-sky-blue/30 dark:border-sky-500/30 shadow-[0_8px_30px_rgba(107,164,232,0.2)] dark:shadow-none text-xs font-mono font-medium text-text-primary dark:text-[#D6D9E0] whitespace-nowrap z-50"
+              className="absolute bottom-full right-1/2 translate-x-1/2 mb-4 bg-white/95 dark:bg-brand-alt/95 backdrop-blur-md px-4 py-2 rounded-2xl border border-sky-blue/30 dark:border-sky-500/30 shadow-[0_8px_30px_rgba(107,164,232,0.2)] dark:shadow-none text-xs font-mono font-medium text-text-primary dark:text-text-primary whitespace-nowrap z-50"
               initial={{ opacity: 0, y: 12, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.9 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
             >
               {isWaterGunActive ? "Squirtle used Water Gun! 💦" : "Squirtle is chilling 😎"}
-              <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-[1px] w-3 h-3 bg-white/95 dark:bg-[#171a22]/95 border-r border-b border-sky-blue/30 dark:border-sky-500/30 transform rotate-45" />
+              <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-[1px] w-3 h-3 bg-white/95 dark:bg-brand-alt/95 border-r border-b border-sky-blue/30 dark:border-sky-500/30 transform rotate-45" />
             </motion.div>
           )}
         </AnimatePresence>

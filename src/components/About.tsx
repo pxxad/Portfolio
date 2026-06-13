@@ -36,12 +36,17 @@ const stories = [
   }
 ];
 
+import BulbasaurEasterEgg from "./BulbasaurEasterEgg";
+
 export default function About() {
   return (
-    <section id="about" className="relative py-24 bg-brand-alt overflow-hidden">
+    <section id="about" className="relative py-24 bg-brand-alt overflow-hidden transition-colors duration-300">
       {/* Decorative background shapes */}
       <div className="absolute top-1/2 left-[-10%] w-[400px] h-[400px] rounded-full bg-soft-blue/10 blur-[80px] -z-10 pointer-events-none" />
       <div className="absolute bottom-[10%] right-[-10%] w-[350px] h-[350px] rounded-full bg-lavender/15 blur-[90px] -z-10 pointer-events-none" />
+
+      {/* Easter Egg */}
+      <BulbasaurEasterEgg />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         

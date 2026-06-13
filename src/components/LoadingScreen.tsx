@@ -46,7 +46,7 @@ export default function LoadingScreen() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25, ease: "easeInOut" }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-50 dark:bg-[#0F1117] text-slate-900 dark:text-[#D6D9E0] overflow-hidden select-none"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-50 dark:bg-brand-bg text-slate-900 dark:text-text-primary overflow-hidden select-none"
         >
           {/* Subtle electric pulsing background glow */}
           <motion.div

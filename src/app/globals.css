@@ -24,16 +24,16 @@
 }
 
 .dark {
-  --color-brand-bg: #0f1117;
-  --color-brand-alt: #171a22;
-  --color-ice-blue: #171a22;
-  --color-soft-blue: #232731;
-  --color-sky-blue: #9f7aea;
-  --color-soft-violet: #805ad5;
-  --color-lavender: #2d3748;
+  --color-brand-bg: #0A0F1F;
+  --color-brand-alt: #111827;
+  --color-ice-blue: #111827;
+  --color-soft-blue: #1A2333;
+  --color-sky-blue: #60A5FA;
+  --color-soft-violet: #A78BFA;
+  --color-lavender: #1A2333;
   
-  --color-text-primary: #d6d9e0;
-  --color-text-secondary: #a0aec0;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #CBD5E1;
   
   --background: var(--color-brand-bg);
   --foreground: var(--color-text-primary);
@@ -55,6 +55,12 @@ body {
   box-shadow: 0 8px 32px 0 rgba(168, 197, 240, 0.08);
 }
 
+:is(.dark, .dark *) .glass-card {
+  background: rgba(26, 35, 51, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+}
+
 .glass-navbar {
   background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(20px);
@@ -63,20 +69,31 @@ body {
   box-shadow: 0 4px 30px rgba(168, 197, 240, 0.05);
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-/* Hide scrollbar for IE, Edge and Firefox */
-.no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+:is(.dark, .dark *) .glass-navbar {
+  background: rgba(10, 15, 31, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Custom text selection */
 ::selection {
   background-color: rgba(168, 197, 240, 0.3);
   color: #1a1a2e;
+}
+
+:is(.dark, .dark *) ::selection {
+  background-color: rgba(167, 139, 250, 0.35);
+  color: #F8FAFC;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Smooth scroll */

@@ -27,9 +27,9 @@ const itemVariants = {
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-32 bg-slate-50 relative overflow-hidden border-y border-slate-100">
-      {/* Subtle light background mesh */}
-      <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none" />
+    <section id="projects" className="py-32 bg-slate-50 dark:bg-[#0A0F1F] relative overflow-hidden border-y border-slate-100 dark:border-white/5 transition-colors duration-300">
+      {/* Subtle radial grid background */}
+      <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] dark:bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:24px_24px] opacity-60 dark:opacity-40 pointer-events-none transition-opacity duration-300" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
