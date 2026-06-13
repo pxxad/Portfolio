@@ -102,11 +102,11 @@ export default function Skills() {
                       </div>
                       
                       {/* Interactive Progress Bar */}
-                      <div className="h-1.5 w-full bg-black/[0.03] rounded-full overflow-hidden border border-black/[0.01]">
+                      <div className="h-1.5 w-full bg-black/[0.05] rounded-full overflow-hidden border border-black/[0.01]">
                         <motion.div
-                          className="h-full bg-gradient-to-r from-sky-blue to-soft-violet rounded-full origin-left"
-                          initial={{ scaleX: 0 }}
-                          whileInView={{ scaleX: skill.proficiency / 100 }}
+                          className="h-full bg-gradient-to-r from-sky-blue to-soft-violet rounded-full"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.proficiency}%` }}
                           viewport={{ once: true }}
                           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         />

@@ -1,26 +1,28 @@
 "use client";
 
+import { useState } from "react";
 import { GitBranch, Link as LinkIcon, Mail } from "lucide-react";
-import { pokemonAssets } from "@/data/pokemon";
+import { pokemonAssets, PokemonAssetKey } from "@/data/pokemon";
 import Image from "next/image";
+import FooterBackground from "./FooterBackground";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [clickCount, setClickCount] = useState(0);
+  const [bgKey, setBgKey] = useState<PokemonAssetKey>("footerCar");
+
+  const handleCopyrightClick = () => {
+    if (bgKey === "snorlax") return;
+    const newCount = clickCount + 1;
+    setClickCount(newCount);
+    if (newCount >= 3) {
+      setBgKey("snorlax");
+    }
+  };
 
   return (
     <footer className="relative bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 overflow-hidden pt-40 pb-12 px-6 transition-colors duration-300">
-      {/* Integrated Snorlax Forest Background (Occupies ~70% from bottom) */}
-      <div className="absolute inset-x-0 bottom-0 h-[70%] pointer-events-none opacity-20 dark:opacity-15 mix-blend-multiply dark:mix-blend-screen select-none z-0">
-        <Image
-          src={pokemonAssets.snorlax}
-          alt="Snorlax Forest"
-          fill
-          className="object-cover object-bottom"
-          priority
-        />
-        {/* Gradient mask to blend the top of the image into the solid background */}
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-slate-50/40 to-slate-50 dark:via-slate-950/40 dark:to-slate-950 transition-colors duration-300" />
-      </div>
+      <FooterBackground bgKey={bgKey} />
 
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center pt-10">
         {/* Top Section: Brand & Links */}
@@ -67,7 +69,11 @@ export default function Footer() {
 
         {/* Bottom Section: Copyright */}
         <div className="w-full flex justify-center mt-8">
-          <p className="text-xs text-slate-500 dark:text-slate-500 font-mono">
+          <p 
+            className="text-xs text-slate-500 dark:text-slate-500 font-mono cursor-pointer select-none transition-colors hover:text-slate-700 dark:hover:text-slate-300"
+            onClick={handleCopyrightClick}
+            title={bgKey === "snorlax" ? "Zzz..." : "Click me!"}
+          >
             &copy; {currentYear} B Prasad. All rights reserved.
           </p>
         </div>

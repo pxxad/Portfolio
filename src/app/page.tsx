@@ -8,10 +8,12 @@ import DSA from "@/components/DSA";
 import GitHub from "@/components/GitHub";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import LoadingScreen from "@/components/LoadingScreen";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
+      <LoadingScreen />
       <Navbar />
       <main className="flex-grow">
         <Hero />

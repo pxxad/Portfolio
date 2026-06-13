@@ -134,6 +134,23 @@ function CursorGlow() {
 // ── Hero ─────────────────────────────────────────────────────────────────────
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const [showStreak, setShowStreak] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mediaQuery.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mediaQuery.addEventListener("change", handler);
+
+    const played = sessionStorage.getItem("pjb_hero_streak_played");
+    if (!played) {
+      setShowStreak(true);
+      sessionStorage.setItem("pjb_hero_streak_played", "true");
+    }
+
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -200,25 +217,58 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              Seeking 2025 Internships
+              Seeking Summer 2026 Internship Opportunities
             </div>
           </motion.div>
 
           {/* Name */}
-          <motion.h1
-            initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1.2, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl sm:text-6xl lg:text-8xl font-black tracking-tight mb-4"
-            style={{
-              background: "linear-gradient(135deg, #1a1a2e 0%, #2d3561 50%, #1a1a2e 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            B Prasad
-          </motion.h1>
+          <div className="relative inline-block select-none mb-4">
+            <motion.h1
+              initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 1.2, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="text-5xl sm:text-6xl lg:text-8xl font-black tracking-tight relative z-10"
+              style={{
+                background: "linear-gradient(135deg, #1a1a2e 0%, #2d3561 50%, #1a1a2e 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              B Prasad
+            </motion.h1>
+
+            {showStreak && !reducedMotion && (
+              <svg
+                className="absolute inset-x-0 top-1/2 -translate-y-1/2 w-[120%] left-[-10%] h-12 pointer-events-none -z-10 overflow-visible opacity-25 dark:opacity-15"
+                viewBox="0 0 100 20"
+                preserveAspectRatio="none"
+              >
+                <motion.path
+                  d="M 0,10 Q 15,3 30,12 T 60,8 T 85,13 T 100,10"
+                  fill="none"
+                  stroke="url(#lightningGrad)"
+                  strokeWidth="2"
+                  filter="drop-shadow(0 0 5px #fbbf24)"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: [0, 0.8, 0.8, 0] }}
+                  transition={{
+                    pathLength: { duration: 0.5, ease: "easeOut", delay: 1.3 },
+                    opacity: { duration: 0.6, times: [0, 0.15, 0.85, 1], ease: "linear", delay: 1.3 }
+                  }}
+                />
+                <defs>
+                  <linearGradient id="lightningGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#fbbf24" stopOpacity="0" />
+                    <stop offset="25%" stopColor="#fbbf24" stopOpacity="1" />
+                    <stop offset="50%" stopColor="#60a5fa" stopOpacity="1" />
+                    <stop offset="75%" stopColor="#fbbf24" stopOpacity="1" />
+                    <stop offset="100%" stopColor="#fbbf24" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            )}
+          </div>
 
           {/* Subtitle */}
           <motion.h2
@@ -262,7 +312,6 @@ export default function Hero() {
               Get in Touch
             </a>
 
-            {/* Spark Companion — inline beside CTAs */}
             <SparkCompanion />
           </motion.div>
         </motion.div>

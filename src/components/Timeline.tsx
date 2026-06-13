@@ -33,7 +33,7 @@ export default function Timeline() {
   const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section id="timeline" ref={containerRef} className="py-32 bg-white relative overflow-hidden">
+    <section id="timeline" ref={containerRef} className="py-32 bg-white dark:bg-[#0f1117] relative overflow-hidden transition-colors duration-300">
       {/* Decorative Blur */}
       <div className="absolute top-[20%] right-[-10%] w-[400px] h-[400px] rounded-full bg-soft-blue/5 blur-[100px] -z-10 pointer-events-none" />
 
@@ -55,7 +55,7 @@ export default function Timeline() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-[#D6D9E0] tracking-tight"
           >
             My Timeline
           </motion.h2>
@@ -68,12 +68,12 @@ export default function Timeline() {
           <div className="lg:col-span-8 relative">
             
             {/* Center Vertical Line (Background) */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-slate-100 -translate-x-1/2" />
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-slate-100 dark:bg-white/5 -translate-x-1/2" />
             
             {/* Growing Progress Line (Foreground) */}
             <motion.div
               style={{ scaleY, originY: 0 }}
-              className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-sky-500 -translate-x-1/2 z-10"
+              className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-sky-500 dark:bg-[#9F7AEA] -translate-x-1/2 z-10"
             />
 
             {/* Timeline Cards */}
@@ -89,8 +89,23 @@ export default function Timeline() {
                     }`}
                   >
                     {/* Circle Node on Timeline Line */}
-                    <div className="absolute left-6 md:left-1/2 w-12 h-12 rounded-full border-[3px] border-white bg-slate-50 shadow-[0_0_0_1px_rgba(0,0,0,0.05),0_4px_12px_-4px_rgba(0,0,0,0.05)] flex items-center justify-center -translate-x-1/2 z-20">
-                      <EventIcon category={event.category} />
+                    <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
+                      <motion.div
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        whileInView={{ scale: 2.2, opacity: [0, 0.4, 0] }}
+                        viewport={{ once: true, margin: "-150px" }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                        className="absolute w-12 h-12 rounded-full bg-sky-400 dark:bg-[#9F7AEA] pointer-events-none"
+                      />
+                      <motion.div
+                        initial={{ scale: 0.8 }}
+                        whileInView={{ scale: [0.8, 1.15, 1] }}
+                        viewport={{ once: true, margin: "-150px" }}
+                        transition={{ duration: 0.6, ease: "easeInOut" }}
+                        className="w-12 h-12 rounded-full border-[3px] border-white dark:border-[#0f1117] bg-slate-50 dark:bg-[#171a22] shadow-[0_0_0_1px_rgba(0,0,0,0.05),0_4px_12px_-4px_rgba(0,0,0,0.05)] dark:shadow-none flex items-center justify-center relative z-10"
+                      >
+                        <EventIcon category={event.category} />
+                      </motion.div>
                     </div>
 
                     {/* Timeline Card Content */}
@@ -103,24 +118,24 @@ export default function Timeline() {
                         isLeft ? "md:text-right md:pr-14" : "md:text-left md:pl-14"
                       }`}
                     >
-                      <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:border-slate-300 hover:translate-y-[-4px] inline-block text-left w-full">
+                      <div className="bg-white dark:bg-[#171a22] p-8 rounded-3xl border border-slate-200 dark:border-white/5 shadow-sm transition-all duration-500 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)] hover:border-slate-300 dark:hover:border-white/20 hover:translate-y-[-4px] inline-block text-left w-full">
                         {/* Year Banner */}
                         <div className="flex items-center gap-2 mb-4">
-                          <span className="text-[11px] font-bold font-mono tracking-wider text-sky-600 bg-sky-50 border border-sky-100 px-3 py-1.5 rounded-full uppercase">
+                          <span className="text-[11px] font-bold font-mono tracking-wider text-sky-600 dark:text-[#9F7AEA] bg-sky-50 dark:bg-[#9F7AEA]/10 border border-sky-100 dark:border-[#9F7AEA]/20 px-3 py-1.5 rounded-full uppercase">
                             {event.year}
                           </span>
                         </div>
 
                         {/* Title & Subtitle */}
-                        <h3 className="text-xl font-bold text-slate-900 mb-1.5 font-sans tracking-tight">
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-[#D6D9E0] mb-1.5 font-sans tracking-tight">
                           {event.title}
                         </h3>
-                        <p className="text-xs font-semibold font-mono text-slate-500 mb-4 tracking-wide">
+                        <p className="text-xs font-semibold font-mono text-slate-500 dark:text-[#9F7AEA]/80 mb-4 tracking-wide">
                           {event.subtitle}
                         </p>
 
                         {/* Description */}
-                        <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
                           {event.description}
                         </p>
                       </div>
@@ -154,8 +169,8 @@ export default function Timeline() {
                 />
               </motion.div>
               
-              <div className="bg-white/60 backdrop-blur-sm px-5 py-3 rounded-2xl border border-slate-200/60 shadow-sm max-w-[240px]">
-                <p className="text-[11px] font-semibold text-slate-500 leading-relaxed tracking-wide">
+              <div className="bg-white/60 dark:bg-[#171a22]/80 backdrop-blur-sm px-5 py-3 rounded-2xl border border-slate-200/60 dark:border-white/5 shadow-sm max-w-[240px]">
+                <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 leading-relaxed tracking-wide">
                   Balancing work, academics, and side projects like...
                 </p>
               </div>

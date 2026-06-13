@@ -14,32 +14,32 @@ const dsaRoadmap = [
 
 const profiles = [
   {
-    href: "https://leetcode.com/u/pxxad/",
+    href: "https://leetcode.com/u/prasad__jb/",
     name: "LeetCode",
-    handle: "@pxxad",
+    handle: "@prasad__jb",
     icon: Trophy,
     color: "bg-amber-500/10 text-amber-600",
     delay: 0,
   },
   {
-    href: "https://codeforces.com/profile/pxxad",
+    href: "https://codeforces.com/profile/Prasad_jb",
     name: "Codeforces",
-    handle: "@pxxad",
+    handle: "@Prasad_jb",
     icon: Award,
     color: "bg-sky-blue/10 text-sky-blue",
     delay: 0.1,
   },
   {
-    href: "https://www.codechef.com/users/pxxad",
+    href: "https://www.codechef.com/users/prasad_jb",
     name: "CodeChef",
-    handle: "@pxxad",
+    handle: "@prasad_jb",
     icon: Code2,
     color: "bg-amber-800/10 text-amber-800",
     delay: 0.2,
   },
   {
-    href: "https://docs.google.com/spreadsheets",
-    name: "TLE Sheet",
+    href: "https://www.tle-eliminators.com/my-profile",
+    name: "TLE Eliminators",
     handle: "DSA Practice",
     icon: BookOpen,
     color: "bg-emerald-500/10 text-emerald-600",
@@ -134,23 +134,29 @@ export default function DSA() {
           </div>
 
           {/* Right Column: Ash Aura artwork (Training Mascot) */}
-          <div className="lg:col-span-5 flex justify-center items-center relative">
+          <div className="lg:col-span-5 flex justify-center items-center relative my-auto h-full min-h-[300px]">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative w-56 h-72 cursor-pointer group"
+              className="relative w-64 h-80 lg:w-[280px] lg:h-[360px] cursor-pointer group"
             >
-              <Image
-                src={pokemonAssets.ashAura}
-                alt="Ash Aura Training mascot"
-                fill
-                className="object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
-                priority
-              />
-              {/* Subtle pulsing background ring */}
-              <div className="absolute inset-0 bg-sky-blue/10 rounded-full filter blur-xl scale-75 animate-pulse -z-10" />
+              <motion.div
+                animate={{ y: [-12, 12, -12] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="w-full h-full relative"
+              >
+                <Image
+                  src={pokemonAssets.ashAura}
+                  alt="Ash Aura Training mascot"
+                  fill
+                  className="object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-105 z-10 relative"
+                  priority
+                />
+                {/* Enhanced pulsing blue aura */}
+                <div className="absolute inset-0 bg-sky-blue/30 rounded-full filter blur-2xl scale-90 animate-pulse z-0" />
+              </motion.div>
             </motion.div>
           </div>
 
