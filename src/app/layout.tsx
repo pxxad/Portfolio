@@ -3,7 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import KonamiCode from "@/components/KonamiCode";
-import CursorTrail from "@/components/CursorTrail";
+import CursorAura from "@/components/CursorAura";
 import Preloader from "@/components/Preloader";
 
 const inter = Inter({
@@ -49,7 +49,7 @@ export default function RootLayout({
           {children}
         </SmoothScroll>
         <KonamiCode />
-        <CursorTrail />
+        <CursorAura />
       </body>
     </html>
   );

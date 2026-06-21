@@ -7,7 +7,7 @@
 export const pokemonAssets = {
   // Hero / UI
   spark:        "/images/pokemon/spark-pikachu.jpg",
-  thunderPikachuLoader: "/images/pokemon/thunder-pikachu-loader.gif",
+  thunderPikachuLoader: "/images/pokemon/thunder-pikachu-loader.mp4",
 
   // Theme toggle
   gengar:       "/images/pokemon/gengar-toggle.jpg",
@@ -15,7 +15,7 @@ export const pokemonAssets = {
   // Footer
   snorlax:      "/images/pokemon/snorlax-footer.jpg",
   chikorita:    "/images/pokemon/chikorita-signature.jpg",
-  footerCar:    "/images/pokemon/footer_car.jfif",
+  footerCar:    "/images/pokemon/footer_car.jpg",
 
   // Easter egg
   squirtle:     "/images/pokemon/squirtle-easteregg.jpg",

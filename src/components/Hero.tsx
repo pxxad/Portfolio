@@ -95,7 +95,7 @@ export default function Hero() {
           style={{ WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)", maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)" }}
         >
           <Image src="/images/pokemon/hero-bg-light.jfif" alt="Hero background" fill className="object-cover object-center w-full h-full dark:hidden" priority />
-          <Image src="/images/pokemon/hero-bg-dark.jfif" alt="Hero background dark" fill className="object-cover object-center w-full h-full hidden dark:block" priority />
+          <Image src="/images/pokemon/hero-bg-dark.jpg" alt="Hero background dark" fill className="object-cover object-center w-full h-full hidden dark:block" priority />
         </motion.div>
 
         {/* Layer 1: Deep Background Mist */}
@@ -209,7 +209,7 @@ export default function Hero() {
           className="flex-1 w-full flex justify-center lg:justify-end items-center relative"
         >
           {/* Glassmorphic Container (Abstract Tech Visual / Blueprint) */}
-          <div className="relative w-full max-w-sm aspect-square md:aspect-video lg:aspect-square rounded-[2rem] border border-slate-200/80 dark:border-white/10 bg-white/70 dark:bg-zinc-900/60 backdrop-blur-md shadow-xl overflow-hidden flex items-center justify-center group transition-opacity duration-500">
+          <div className="relative w-full max-w-sm aspect-square md:aspect-video lg:aspect-square rounded-[2rem] border border-slate-200/80 dark:border-white/10 bg-white/80 dark:bg-zinc-900/40 backdrop-blur-md shadow-xl overflow-hidden flex items-center justify-center group transition-opacity duration-500">
 
             {/* Tech Wireframe / Grid Background */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]" />
@@ -237,7 +237,7 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-4 -right-4 w-24 h-24 opacity-40 group-hover:opacity-80 transition-opacity duration-500 z-20"
+              className="absolute bottom-2 right-2 opacity-20 max-w-[80px] w-20 h-20 transition-opacity duration-500 z-20"
             >
               <Image
                 src={pokemonAssets.squirtle}

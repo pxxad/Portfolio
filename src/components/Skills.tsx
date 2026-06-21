@@ -43,12 +43,12 @@ export default function Skills() {
             
             return (
               <FadeIn key={category.title} delay={idx * 0.1} yOffset={30} duration={0.6} className="h-full">
-                <div className="relative overflow-hidden z-10 rounded-2xl group h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(124,92,252,0.15)] before:absolute before:-inset-[200%] before:rounded-[inherit] before:animate-[spin_2.5s_linear_infinite] before:z-[-1] before:bg-[conic-gradient(from_0deg,transparent_0_340deg,#7C5CFF_360deg)] pointer-events-auto border border-slate-200/50 dark:border-zinc-800/80">
-                  {/* Inner wrapper to mask the interior perfectly */}
-                  <div className="absolute inset-[1px] bg-zinc-900/40 dark:bg-zinc-900/60 backdrop-blur-sm rounded-[calc(1rem-1px)] z-[-1]" />
+                <div className="relative p-[1px] overflow-hidden rounded-2xl bg-slate-200/60 dark:bg-zinc-800/80 z-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(124,92,252,0.15)] group h-full">
+                  {/* The Beam Loop */}
+                  <div className="absolute inset-0 w-[200%] h-[200%] top-[-50%] left-[-50%] animate-spin [animation-duration:4s] bg-[conic-gradient(from_0deg,transparent_60%,#8b5cf6_100%)] z-0" />
                   
-                  {/* The Actual Card Content */}
-                  <div className="relative z-10 p-6 md:p-8 flex flex-col h-full">
+                  {/* The Content Mask Shield */}
+                  <div className="w-full h-full bg-white dark:bg-[#09090b] rounded-[15px] p-6 relative z-10 flex flex-col">
                     
                     {/* Category Header */}
                     <div className="flex items-center gap-3.5 mb-8 border-b border-slate-100 dark:border-white/5 pb-4">

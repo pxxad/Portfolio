@@ -58,7 +58,7 @@ export default function WallPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 via-purple-400/5 to-pink-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 
                 <p className="text-sm md:text-base font-medium leading-relaxed text-text-primary mb-6 relative z-10">
-                  "{msg.text}"
+                  &quot;{msg.text}&quot;
                 </p>
                 
                 <div className="flex items-center justify-between text-xs text-text-secondary font-mono relative z-10">
@@ -80,7 +80,7 @@ export default function WallPage() {
           <div className="inline-block p-8 rounded-3xl glass-card border border-white/10 text-center max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold mb-3">Want to leave a note?</h3>
             <p className="text-text-secondary mb-6 text-sm">
-              I'm always happy to hear from fellow developers, students, or visitors. Drop a message through the contact section!
+              I&apos;m always happy to hear from fellow developers, students, or visitors. Drop a message through the contact section!
             </p>
             <Link 
               href="/#contact"

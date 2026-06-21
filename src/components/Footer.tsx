@@ -1,73 +1,83 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { GitBranch, Mail } from "lucide-react";
-
-const LinkedinIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-    <rect x="2" y="9" width="4" height="12"></rect>
-    <circle cx="4" cy="4" r="2"></circle>
-  </svg>
-);
-import Image from "next/image";
-import { pokemonAssets } from "@/data/pokemon";
-
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="relative bg-brand-bg transition-colors duration-500 text-text-secondary overflow-hidden pt-24 pb-8 px-8 border-t border-black/5 dark:border-white/5">
-      {/* Background Soft Mesh Glow */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-[-20%] left-[20%] w-[50%] h-[50%] rounded-full bg-soft-violet/5 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[10%] w-[40%] h-[40%] rounded-full bg-sky-blue/5 blur-[100px]" />
-      </div>
+    <footer className="relative w-full min-h-[500px] flex flex-col justify-between overflow-hidden bg-[#09090b] px-6 py-12 md:px-16">
+      
+      {/* Background Image Layer */}
+      <img
+        src="/images/pokemon/footer_car.jpg"
+        className="absolute inset-0 w-full h-full object-cover object-[center_18%] pointer-events-none z-0"
+        alt="Footer Atmosphere"
+      />
 
-      <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center justify-center gap-6">
+      {/* Transition Underglow */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#09090b] via-[#09090b]/50 to-transparent opacity-80 z-10 pointer-events-none" />
 
-        {/* Brand & Identity */}
-        <div className="flex flex-col items-center text-center gap-2">
-          <h2 className="text-3xl font-black tracking-tight text-text-primary font-mono">
-            PJB.DEV
-          </h2>
-          <p className="text-xs md:text-sm font-mono text-text-secondary">
-            B. Prasad | B.Tech IT Student @ IIIT Lucknow
+      {/* 3-Column Content Layout */}
+      <div className="relative z-20 w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end h-full pt-32 pb-4 space-y-12 md:space-y-0 font-sans">
+
+        {/* Column 1: Personal Dev Branding */}
+        <div className="flex flex-col items-start text-left">
+          <h3 className="text-2xl font-extrabold tracking-tight text-white">
+            Prasad B<span className="text-violet-500">.</span>
+          </h3>
+          <p className="text-xs text-zinc-300 mt-2 max-w-xs leading-relaxed">
+            Information Technology Student at IIIT Lucknow. Building interactive, highly optimized web applications and exploring complex data architectures.
           </p>
         </div>
 
-        {/* Links */}
-        <div className="flex items-center gap-8 mt-4">
-          <a href="https://github.com/pxxad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-text-secondary hover:text-soft-violet transition-colors duration-300 font-mono text-xs uppercase tracking-wider group">
-            <GitBranch className="w-4 h-4 group-hover:-translate-y-1 transition-transform" /> GitHub
-          </a>
-          <a href="https://linkedin.com/in/pxxad" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-text-secondary hover:text-sky-blue transition-colors duration-300 font-mono text-xs uppercase tracking-wider group">
-            <LinkedinIcon className="w-4 h-4 group-hover:-translate-y-1 transition-transform" /> LinkedIn
-          </a>
-          <a href="mailto:pxxad@iiitl.ac.in" className="flex items-center gap-2 text-text-secondary hover:text-text-primary transition-colors duration-300 font-mono text-xs uppercase tracking-wider group">
-            <Mail className="w-4 h-4 group-hover:-translate-y-1 transition-transform" /> Email
-          </a>
+        {/* Column 2: Navigation Index */}
+        <div className="flex flex-col items-start space-y-2 text-xs tracking-wide text-zinc-400">
+          <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-1">Index</span>
+          <a href="#home" className="hover:text-violet-400 transition-colors duration-200">// index_root</a>
+          <a href="#projects" className="hover:text-violet-400 transition-colors duration-200">// selected_works</a>
+          <a href="#skills" className="hover:text-violet-400 transition-colors duration-200">// core_stack</a>
+          <a href="#dsa" className="hover:text-violet-400 transition-colors duration-200">// algorithms</a>
         </div>
 
-        {/* Copyright */}
-        <p className="text-[10px] font-mono mt-8 opacity-60">
-          &copy; {currentYear} B Prasad. All rights reserved.
-        </p>
+        {/* Column 3: Connection Gate */}
+        <div className="flex flex-col items-start md:items-end text-left md:text-right">
+          <span className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Availability</span>
+
+          {/* Social Links */}
+          <div className="flex items-center space-x-2">
+            <a
+              href="https://github.com/pxxad"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs px-3 py-2 rounded-lg border border-zinc-800 bg-zinc-950/80 text-zinc-300 hover:border-violet-500/50 hover:text-white transition-all duration-200"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/pxxad"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs px-3 py-2 rounded-lg border border-zinc-800 bg-zinc-950/80 text-zinc-300 hover:border-violet-500/50 hover:text-white transition-all duration-200"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="mailto:pxxad@iiitl.ac.in"
+              className="text-xs px-3 py-2 rounded-lg border border-zinc-800 bg-zinc-950/80 text-zinc-300 hover:border-violet-500/50 hover:text-white transition-all duration-200"
+            >
+              Email
+            </a>
+          </div>
+
+          {/* Active Status Indicator */}
+          <div className="flex items-center space-x-2 text-[11px] text-zinc-400 mt-4 bg-zinc-950/40 px-3 py-1.5 rounded-full border border-zinc-800/40 backdrop-blur-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]" />
+            <span>Available for summer internships</span>
+          </div>
+        </div>
       </div>
 
-      {/* Minimal Snorlax Silhouette */}
-      <motion.div
-        animate={{ scale: [1, 1.02, 1] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-0 right-0 w-16 h-16 opacity-30 dark:opacity-20 pointer-events-none"
-      >
-        <Image
-          src={pokemonAssets.snorlax}
-          alt="Sleeping Snorlax"
-          fill
-          className="object-contain"
-        />
-      </motion.div>
+      {/* Baseline Production Tag */}
+      <div className="w-full text-center md:text-left text-[10px] text-zinc-600 tracking-wider pt-8 border-t border-zinc-900/40 mt-8 relative z-20">
+        © {new Date().getFullYear()} PJB.DEV • BUILT FROM SCRATCH
+      </div>
     </footer>
   );
 }

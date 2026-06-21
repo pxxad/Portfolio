@@ -63,14 +63,14 @@ export default function DSA() {
         <motion.div
           animate={{ y: [-10, 10, -10] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute inset-0 flex justify-center items-center pointer-events-none z-[-1] opacity-[0.28] dark:opacity-20"
+          className="absolute inset-0 flex justify-center items-center pointer-events-none z-[-1]"
         >
           <Image
             src={pokemonAssets.ashAura}
             alt="Ash Aura Watermark"
             width={400}
             height={400}
-            className="absolute pointer-events-none z-0 object-contain"
+            className="absolute pointer-events-none z-0 object-contain opacity-70 mix-blend-screen"
             style={{ WebkitMaskImage: "radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)", maskImage: "radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)" }}
             priority
           />

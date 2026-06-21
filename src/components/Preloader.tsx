@@ -64,12 +64,13 @@ export default function Preloader() {
               }}
               className="relative w-24 h-24 z-10"
             >
-              <Image
+              <video
                 src={pokemonAssets.thunderPikachuLoader}
-                alt="Loading..."
-                fill
-                className="object-contain drop-shadow-md"
-                priority
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-contain drop-shadow-md rounded-full"
               />
             </motion.div>
 

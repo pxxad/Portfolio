@@ -95,8 +95,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         
         {/* Project Initial Display Logo / Floating Title */}
         <motion.h4 
-          className="relative z-20 text-slate-800 dark:text-zinc-100 font-bold text-2xl md:text-3xl font-mono tracking-widest drop-shadow-lg text-center transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2"
-          style={{ textShadow: "0px 4px 10px rgba(0,0,0,0.5)" }}
+          className="relative z-20 text-white font-bold text-2xl md:text-3xl font-mono tracking-widest drop-shadow-2xl text-center transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2"
+          style={{ textShadow: "0px 4px 20px rgba(0,0,0,0.8), 0px 0px 10px rgba(0,0,0,0.5)" }}
         >
           {project.title.toUpperCase()}
         </motion.h4>
@@ -113,7 +113,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Title */}
-        <h3 className="text-2xl font-bold text-slate-900 dark:text-text-primary mb-3 group-hover:text-sky-600 dark:group-hover:text-soft-violet transition-colors duration-300">
+        <h3 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-zinc-100 mb-3 group-hover:text-sky-600 dark:group-hover:text-soft-violet transition-colors duration-300">
           {project.title}
         </h3>
 
