@@ -7,19 +7,20 @@ import { pokemonAssets } from "@/data/pokemon";
 
 // ── Bulbasaur Leaf Particles (hover) ──────────────────────────────────────────
 function LeafParticles({ active }: { active: boolean }) {
-  const [leaves, setLeaves] = useState<{ id: number; x: number; y: number; r: number; s: number }[]>([]);
+  const [leaves, setLeaves] = useState<{ id: number; x: number; y: number; r: number; s: number; isOrb: boolean }[]>([]);
 
   useEffect(() => {
     if (!active) { setLeaves([]); return; }
     const interval = setInterval(() => {
       setLeaves(prev => [
-        ...prev.slice(-6),
+        ...prev.slice(-8),
         {
           id: Date.now() + Math.random(),
           x: (Math.random() - 0.5) * 80,
           y: -(Math.random() * 40 + 20),
           r: Math.random() * 360,
           s: 0.6 + Math.random() * 0.6,
+          isOrb: Math.random() > 0.6, // 40% chance to be a soft green orb instead of a leaf
         }
       ]);
     }, 250);
@@ -29,16 +30,28 @@ function LeafParticles({ active }: { active: boolean }) {
   return (
     <AnimatePresence>
       {leaves.map(l => (
-        <motion.div
-          key={l.id}
-          initial={{ x: 0, y: 0, opacity: 0.9, rotate: 0, scale: l.s }}
-          animate={{ x: l.x, y: l.y, opacity: 0, rotate: l.r }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none text-sm z-0"
-        >
-          🍃
-        </motion.div>
+        l.isOrb ? (
+          <motion.div
+            key={l.id}
+            initial={{ x: 0, y: 0, opacity: 0, scale: l.s }}
+            animate={{ x: l.x, y: l.y, opacity: [0, 0.8, 0], scale: l.s * 1.5 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none rounded-full bg-emerald-400 mix-blend-screen"
+            style={{ width: 6, height: 6, boxShadow: "0 0 10px rgba(52, 211, 153, 0.8)", filter: "blur(1px)" }}
+          />
+        ) : (
+          <motion.div
+            key={l.id}
+            initial={{ x: 0, y: 0, opacity: 0.9, rotate: 0, scale: l.s }}
+            animate={{ x: l.x, y: l.y, opacity: 0, rotate: l.r }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none text-sm z-0"
+          >
+            🍃
+          </motion.div>
+        )
       ))}
     </AnimatePresence>
   );

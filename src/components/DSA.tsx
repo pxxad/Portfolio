@@ -1,9 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight, Award, Trophy, Milestone, Code2, BookOpen } from "lucide-react";
 import { pokemonAssets } from "@/data/pokemon";
+import FadeIn from "./FadeIn";
 
 const dsaRoadmap = [
   { step: "01", name: "Arrays & Hashing", desc: "Linear systems, frequency tracking, and sliding windows." },
@@ -47,6 +49,7 @@ const profiles = [
   },
 ];
 
+
 export default function DSA() {
   return (
     <section id="dsa" className="py-24 bg-brand-alt relative overflow-hidden transition-colors duration-300">
@@ -56,34 +59,43 @@ export default function DSA() {
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
 
+        {/* Ash Watermark (Competitive Programming Aura) */}
+        <motion.div
+          animate={{ y: [-10, 10, -10] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-0 flex justify-center items-center pointer-events-none z-[-1] opacity-[0.28] dark:opacity-20"
+        >
+          <Image
+            src={pokemonAssets.ashAura}
+            alt="Ash Aura Watermark"
+            width={400}
+            height={400}
+            className="absolute pointer-events-none z-0 object-contain"
+            style={{ WebkitMaskImage: "radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)", maskImage: "radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)" }}
+            priority
+          />
+        </motion.div>
+
         {/* Section Header */}
         <div className="text-center mb-20">
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-[10px] tracking-[0.2em] font-mono text-sky-blue uppercase font-bold mb-2"
-          >
-            Algorithms
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-5xl font-extrabold text-text-primary tracking-tight"
-          >
-            DSA Journey
-          </motion.h2>
+          <FadeIn>
+            <p className="text-[10px] tracking-[0.2em] font-mono text-soft-violet uppercase font-bold mb-2">
+              Algorithms
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-soft-violet tracking-tight">
+              DSA Journey
+            </h2>
+          </FadeIn>
         </div>
 
         {/* Content Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="w-full flex flex-col gap-12">
 
-          {/* Left Column: Narrative & Profiles */}
-          <div className="lg:col-span-7 flex flex-col gap-8">
-            <div>
+          {/* Narrative & Profiles */}
+          <div className="flex flex-col gap-8 max-w-4xl mx-auto w-full">
+            <div className="text-center">
               <motion.h3
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -98,14 +110,14 @@ export default function DSA() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-xs md:text-sm text-text-secondary leading-relaxed font-light mb-6"
+                className="text-xs md:text-sm text-text-secondary leading-relaxed font-light mb-8 max-w-2xl mx-auto"
               >
                 Problem-solving is more than just passing tests—it's about training the mind to recognize patterns, optimize space complexity, and build reliable execution paths. I started with simple iterations and now tackle medium/hard graph problems and DP grids daily.
               </motion.p>
             </div>
 
-            {/* Profile Cards — 2×2 grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Profile Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {profiles.map(({ href, name, handle, icon: Icon, color, delay }) => (
                 <motion.a
                   key={name}
@@ -116,48 +128,19 @@ export default function DSA() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay }}
-                  className="glass-card p-6 rounded-[24px] border border-white/50 shadow-sm flex items-center justify-between hover:bg-white/60 hover:shadow-md hover:translate-y-[-2px] transition-all duration-300 group"
+                  className="bg-white dark:bg-zinc-900/50 p-6 rounded-[24px] border border-slate-200 dark:border-zinc-800 shadow-sm flex flex-col items-center justify-center gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group text-center"
                 >
-                  <div className="flex items-center gap-3.5">
-                    <div className={`w-10 h-10 rounded-xl ${color} flex items-center justify-center`}>
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-text-primary font-mono">{name}</h4>
-                      <p className="text-[10px] font-mono text-text-secondary">{handle}</p>
-                    </div>
+                  <div className={`w-12 h-12 rounded-xl ${color} flex items-center justify-center transition-transform group-hover:scale-110`}>
+                    <Icon className="w-6 h-6" />
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-text-secondary group-hover:text-text-primary transition-colors group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <div>
+                    <h4 className="text-sm font-bold text-slate-900 dark:text-white font-mono">{name}</h4>
+                    <p className="text-[10px] font-mono text-slate-500 dark:text-slate-400">{handle}</p>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-all absolute top-4 right-4" />
                 </motion.a>
               ))}
             </div>
-          </div>
-
-          {/* Right Column: Ash Aura artwork (Training Mascot) */}
-          <div className="lg:col-span-5 flex justify-center items-center relative my-auto h-full min-h-[300px]">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative w-64 h-80 lg:w-[280px] lg:h-[360px] cursor-pointer group"
-            >
-              <motion.div
-                animate={{ y: [-12, 12, -12] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full h-full relative"
-              >
-                <Image
-                  src={pokemonAssets.ashAura}
-                  alt="Ash Aura Training mascot"
-                  fill
-                  className="object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-105 z-10 relative"
-                  priority
-                />
-                {/* Enhanced pulsing blue aura */}
-                <div className="absolute inset-0 bg-sky-blue/30 rounded-full filter blur-2xl scale-90 animate-pulse z-0" />
-              </motion.div>
-            </motion.div>
           </div>
 
         </div>

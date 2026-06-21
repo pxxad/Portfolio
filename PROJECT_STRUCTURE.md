@@ -60,7 +60,7 @@ Portfolio/
     │
     ├── components/
     │   ├── About.tsx                → About section (5 story cards, Bulbasaur, Chikorita)
-    │   ├── Contact.tsx              → Contact section (email, GitHub, LinkedIn)
+    │   ├── Contact.tsx              → Contact section (email, GitHub, <Linkedin)
     │   ├── DSA.tsx                  → DSA journey (profiles, roadmap, Ash artwork)
     │   ├── FloatingParticles.tsx    → Canvas particle animation (Hero background)
     │   ├── Footer.tsx               → Footer (Snorlax, brand, links)

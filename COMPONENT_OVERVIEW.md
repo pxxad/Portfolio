@@ -148,11 +148,11 @@ Assembles all sections in order: Navbar → Hero → About → Projects → Time
 
 **Features:**
 - Headline: "Have an idea or a collaboration in mind?"
-- 4 contact method cards: Email, GitHub, LinkedIn, Resume
+- 4 contact method cards: Email, GitHub, <Linkedin, Resume
 - "Send an Email" primary CTA button
 - Each card has icon, label, and external link
 
-**Data:** Hardcoded contact links (pxxad@iiitl.ac.in, github.com/pxxad, linkedin.com/in/pxxad)
+**Data:** Hardcoded contact links (pxxad@iiitl.ac.in, github.com/pxxad, <Linkedin.com/in/pxxad)
 
 ---
 

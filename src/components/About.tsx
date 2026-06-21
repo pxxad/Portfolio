@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GraduationCap, Code, BrainCircuit, HeartHandshake, Rocket } from "lucide-react";
+import FadeIn from "./FadeIn";
 
 const stories = [
   {
@@ -36,7 +37,6 @@ const stories = [
   }
 ];
 
-import BulbasaurEasterEgg from "./BulbasaurEasterEgg";
 
 export default function About() {
   return (
@@ -45,31 +45,22 @@ export default function About() {
       <div className="absolute top-1/2 left-[-10%] w-[400px] h-[400px] rounded-full bg-soft-blue/10 blur-[80px] -z-10 pointer-events-none" />
       <div className="absolute bottom-[10%] right-[-10%] w-[350px] h-[350px] rounded-full bg-lavender/15 blur-[90px] -z-10 pointer-events-none" />
 
-      {/* Easter Egg */}
-      <BulbasaurEasterEgg />
+
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
         <div className="text-center mb-16">
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-[10px] tracking-[0.2em] font-mono text-sky-blue uppercase font-bold mb-2"
-          >
-            My Story
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-5xl font-extrabold text-text-primary tracking-tight"
-          >
-            A Little About Me
-          </motion.h2>
+          <FadeIn>
+            <p className="text-[10px] tracking-[0.2em] font-mono text-soft-violet uppercase font-bold mb-2">
+              My Story
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-soft-violet tracking-tight">
+              A Little About Me
+            </h2>
+          </FadeIn>
         </div>
 
         {/* Stories Grid */}
@@ -77,26 +68,27 @@ export default function About() {
           {stories.map((story, index) => {
             const Icon = story.icon;
             return (
-              <motion.div
+              <FadeIn
                 key={story.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                className="glass-card p-6 md:p-8 rounded-3xl border border-white/50 shadow-sm flex flex-col md:flex-row gap-5 items-start transition-all duration-300 hover:shadow-md hover:bg-white/60 hover:translate-y-[-2px] group"
+                delay={index * 0.1}
+                duration={0.5}
+                yOffset={20}
+                stagger={true}
               >
-                <div className={`p-3 rounded-2xl ${story.color} flex-shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}>
-                  <Icon className="w-6 h-6" />
+                <div className="glass-card p-6 md:p-8 rounded-3xl border border-white/50 shadow-sm flex flex-col md:flex-row gap-5 items-start transition-all duration-300 hover:shadow-md hover:bg-white/60 hover:translate-y-[-2px] group">
+                  <div className={`p-3 rounded-2xl ${story.color} flex-shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}>
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold text-text-primary font-mono tracking-wide mb-2">
+                      {story.title}
+                    </h3>
+                    <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-light">
+                      {story.description}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-base font-bold text-text-primary font-mono tracking-wide mb-2">
-                    {story.title}
-                  </h3>
-                  <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-light">
-                    {story.description}
-                  </p>
-                </div>
-              </motion.div>
+              </FadeIn>
             );
           })}
         </div>

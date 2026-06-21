@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, GitBranch, Link as LinkIcon, FileText, ArrowRight, Send } from "lucide-react";
+import FadeIn from "./FadeIn";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -29,24 +30,16 @@ export default function Contact() {
 
         {/* Section Header */}
         <div className="text-center mb-16">
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-[10px] tracking-[0.2em] font-mono text-sky-blue uppercase font-bold mb-2"
-          >
-            Get In Touch
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-5xl font-extrabold text-text-primary tracking-tight"
-          >
-            Let&apos;s Connect
-          </motion.h2>
+          <FadeIn>
+            <p className="text-[10px] tracking-[0.2em] font-mono text-sky-blue uppercase font-bold mb-2">
+              Get In Touch
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-soft-violet tracking-tight">
+              Open to Opportunities
+            </h2>
+          </FadeIn>
         </div>
 
         {/* Two-Column Layout */}
@@ -97,7 +90,7 @@ export default function Contact() {
               </a>
 
               <a
-                href="https://linkedin.com/in/pxxad"
+                href="https://<Linkedin.com/in/pxxad"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-4 rounded-2xl bg-white/50 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 hover:bg-white/80 dark:hover:bg-white/10 hover:shadow-sm hover:translate-y-[-2px] transition-all duration-300 group"
@@ -167,7 +160,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={!message.trim()}
-                className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 font-semibold rounded-full bg-sky-blue text-white hover:bg-sky-blue/90 shadow-md hover:shadow-lg transition-all duration-300 hover:translate-y-[-2px] text-sm font-mono tracking-wider disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 font-semibold rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white shadow-md hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 hover:translate-y-[-2px] text-sm font-mono tracking-wider disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0"
               >
                 {sent ? (
                   <>Sent! ✨</>

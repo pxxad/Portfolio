@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { GitBranch, ExternalLink } from "lucide-react";
+import { GitBranch, ExternalLink, Code } from "lucide-react";
+import Image from "next/image";
 import { Project } from "@/data/projects";
 
 interface ProjectCardProps {
@@ -11,6 +12,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const [imgError, setImgError] = useState(false);
   
   // Spotlight effect coordinates
   const mouseX = useMotionValue(0);
@@ -19,9 +21,23 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = cardRef.current;
     if (!card) return;
-    const { left, top } = card.getBoundingClientRect();
-    mouseX.set(e.clientX - left);
-    mouseY.set(e.clientY - top);
+    const { left, top, width, height } = card.getBoundingClientRect();
+    const x = e.clientX - left;
+    const y = e.clientY - top;
+    mouseX.set(x);
+    mouseY.set(y);
+    
+    // Calculate 3D tilt (max 3 degrees)
+    const rotateX = ((y / height) - 0.5) * -6; // -3 to 3
+    const rotateY = ((x / width) - 0.5) * 6; // -3 to 3
+    
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+  };
+
+  const handleMouseLeave = () => {
+    const card = cardRef.current;
+    if (!card) return;
+    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
   };
 
   const background = useMotionTemplate`
@@ -36,13 +52,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     <motion.div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      className="relative rounded-3xl overflow-hidden bg-white dark:bg-soft-blue border border-slate-200 dark:border-white/10 shadow-sm group flex flex-col h-full w-full transition-all duration-500 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)] hover:border-slate-300 dark:hover:border-white/20"
-      whileHover={{ y: -8 }}
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      onMouseLeave={handleMouseLeave}
+      className="relative rounded-3xl overflow-hidden bg-white dark:bg-soft-blue border border-slate-200 dark:border-white/10 shadow-[0_0_45px_rgba(139,92,246,0.06)] dark:shadow-[0_0_60px_rgba(139,92,246,0.04)] group flex flex-col h-full w-full hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:border-slate-300 dark:hover:border-white/20 transition-colors duration-300"
+      style={{ transition: "transform 0.2s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out" }}
     >
       {/* Dynamic Cursor Spotlight Overlay */}
       <motion.div
-        className="absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className="absolute inset-0 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{ background }}
       />
 
@@ -53,14 +69,34 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Visual Header/Thumbnail Area */}
       <div 
-        className="h-48 w-full relative flex items-center justify-center p-6 select-none overflow-hidden border-b border-slate-100 dark:border-white/5"
+        className="h-48 w-full relative flex items-center justify-center select-none overflow-hidden border-b border-slate-100 dark:border-white/5"
       >
-        <div className="absolute inset-0 opacity-15" style={{ background: project.gradient }} />
-        <div className="absolute inset-0 bg-white/40 dark:bg-soft-blue/40 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 opacity-15 z-0" style={{ background: project.gradient }} />
+        {project.banner && !imgError ? (
+          <div className="absolute inset-0 z-0 bg-slate-900">
+            <Image
+              src={project.banner}
+              alt={project.title}
+              fill
+              className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 opacity-90 dark:opacity-70"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              onError={() => setImgError(true)}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
+          </div>
+        ) : (
+          <div className="absolute inset-0 z-0 flex items-center justify-center opacity-40 mix-blend-overlay">
+            <div className="p-4 rounded-full bg-white/5 backdrop-blur-sm border border-white/10">
+              <Code className="w-8 h-8 text-white/50" />
+            </div>
+          </div>
+        )}
+        <div className="absolute inset-0 bg-white/10 dark:bg-soft-blue/20 backdrop-blur-[1px] z-10" />
         
         {/* Project Initial Display Logo / Floating Title */}
         <motion.h4 
-          className="relative z-20 text-slate-800 dark:text-text-primary/95 text-2xl md:text-3xl font-black font-mono tracking-widest drop-shadow-sm text-center transition-all duration-500 group-hover:scale-105 group-hover:text-slate-900 dark:group-hover:text-white"
+          className="relative z-20 text-slate-800 dark:text-zinc-100 font-bold text-2xl md:text-3xl font-mono tracking-widest drop-shadow-lg text-center transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2"
+          style={{ textShadow: "0px 4px 10px rgba(0,0,0,0.5)" }}
         >
           {project.title.toUpperCase()}
         </motion.h4>

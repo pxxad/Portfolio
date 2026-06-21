@@ -3,16 +3,16 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-brand-bg: #ffffff;
-  --color-brand-alt: #f8f9fc;
+  --color-brand-bg: #F8FAFC;
+  --color-brand-alt: #ffffff;
   --color-ice-blue: #e8f0fe;
   --color-soft-blue: #a8c5f0;
   --color-sky-blue: #6ba4e8;
-  --color-soft-violet: #b8a9e8;
+  --color-soft-violet: #7C5CFF;
   --color-lavender: #d4ccf0;
   
-  --color-text-primary: #1a1a2e;
-  --color-text-secondary: #4a4a6a;
+  --color-text-primary: #0A0F1F;
+  --color-text-secondary: #475569;
   
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
@@ -26,14 +26,14 @@
 .dark {
   --color-brand-bg: #0A0F1F;
   --color-brand-alt: #111827;
-  --color-ice-blue: #111827;
+  --color-ice-blue: #60A5FA;
   --color-soft-blue: #1A2333;
-  --color-sky-blue: #60A5FA;
-  --color-soft-violet: #A78BFA;
+  --color-sky-blue: #38bdf8;
+  --color-soft-violet: #7C5CFF;
   --color-lavender: #1A2333;
   
   --color-text-primary: #F8FAFC;
-  --color-text-secondary: #CBD5E1;
+  --color-text-secondary: #94a3b8;
   
   --background: var(--color-brand-bg);
   --foreground: var(--color-text-primary);

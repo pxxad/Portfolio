@@ -89,7 +89,7 @@ export default function GitHub() {
   }, []);
 
   return (
-    <section id="github" className="py-24 bg-white relative overflow-hidden">
+    <section id="github" className="py-24 bg-brand-bg transition-colors duration-300 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-[radial-gradient(#d4ccf0_1.5px,transparent_1.5px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
 
@@ -102,18 +102,18 @@ export default function GitHub() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-[10px] tracking-[0.2em] font-mono text-sky-blue uppercase font-bold mb-2"
+            className="text-[10px] tracking-[0.2em] font-mono text-soft-violet uppercase font-bold mb-2"
           >
-            Activity
+            Open Source Contributions
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-5xl font-extrabold text-text-primary tracking-tight mb-6"
+            className="text-3xl md:text-5xl font-extrabold text-soft-violet tracking-tight mb-6"
           >
-            GitHub Repositories
+            GitHub Activity
           </motion.h2>
 
           {/* GitHub Profile CTA */}
@@ -125,31 +125,33 @@ export default function GitHub() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-text-primary text-white hover:bg-text-primary/95 text-xs font-mono font-semibold shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-1px]"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 dark:bg-white/10 text-white hover:bg-slate-800 dark:hover:bg-white/20 text-xs font-mono font-semibold shadow-sm hover:shadow-[0_0_15px_rgba(124,92,252,0.4)] transition-all duration-300 hover:-translate-y-1"
           >
             <GitBranch className="w-4 h-4" /> visit github profile <ArrowUpRight className="w-3.5 h-3.5" />
           </motion.a>
         </div>
 
+          {/* Stats removed per user request */}
+
         {/* Repository Grid */}
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
             {[1, 2, 3, 4].map((n) => (
               <div
                 key={n}
-                className="glass-card p-6 md:p-8 rounded-[24px] border border-white/50 h-44 animate-pulse flex flex-col justify-between"
+                className="bg-white dark:bg-zinc-900 p-6 md:p-8 rounded-[24px] border border-slate-200 dark:border-zinc-800 h-44 animate-pulse flex flex-col justify-between shadow-sm"
               >
                 <div>
-                  <div className="h-5 bg-black/[0.05] rounded-md w-1/3 mb-4" />
-                  <div className="h-4 bg-black/[0.03] rounded-md w-full mb-2" />
-                  <div className="h-4 bg-black/[0.03] rounded-md w-2/3" />
+                  <div className="h-5 bg-slate-200 dark:bg-white/10 rounded-md w-1/3 mb-4" />
+                  <div className="h-4 bg-slate-100 dark:bg-white/5 rounded-md w-full mb-2" />
+                  <div className="h-4 bg-slate-100 dark:bg-white/5 rounded-md w-2/3" />
                 </div>
-                <div className="h-4 bg-black/[0.05] rounded-md w-1/4" />
+                <div className="h-4 bg-slate-200 dark:bg-white/10 rounded-md w-1/4" />
               </div>
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
             {repos.map((repo, idx) => (
               <motion.a
                 key={repo.id}
@@ -160,23 +162,26 @@ export default function GitHub() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                className="glass-card p-6 md:p-8 rounded-[24px] border border-white/50 shadow-sm flex flex-col justify-between hover:bg-white/60 hover:shadow-md hover:translate-y-[-2px] transition-all duration-300 group"
+                className="bg-white dark:bg-zinc-900 p-6 md:p-8 rounded-[24px] border border-slate-200 dark:border-zinc-800 shadow-[0_0_45px_rgba(139,92,246,0.06)] dark:shadow-[0_0_60px_rgba(139,92,246,0.04)] flex flex-col justify-between hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300 group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-base font-bold text-text-primary font-mono group-hover:text-sky-blue transition-colors">
+                    <h3 className="text-base font-bold text-slate-900 dark:text-white font-mono group-hover:text-soft-violet transition-colors">
                       {repo.name}
                     </h3>
-                    <span className="text-[10px] font-mono text-text-secondary bg-black/[0.03] px-2 py-0.5 rounded-md border border-black/[0.05]">
-                      {repo.language}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-sky-blue animate-pulse"></span>
+                      <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded-md border border-slate-200 dark:border-white/10">
+                        {repo.language}
+                      </span>
+                    </div>
                   </div>
-                  <p className="text-xs md:text-sm text-text-secondary font-light leading-relaxed mb-6">
+                  <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed mb-6">
                     {repo.description}
                   </p>
                 </div>
 
-                <div className="flex items-center gap-4 mt-auto text-[10px] font-mono text-text-secondary">
+                <div className="flex items-center gap-4 mt-auto text-[10px] font-mono text-slate-500 dark:text-slate-400">
                   <span className="flex items-center gap-1">
                     <Star className="w-3.5 h-3.5 text-amber-500" />
                     {repo.stargazers_count}

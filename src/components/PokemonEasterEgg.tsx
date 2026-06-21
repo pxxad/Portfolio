@@ -41,7 +41,37 @@ export default function PokemonEasterEgg() {
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleClick}
       >
-        <div className="relative w-24 h-24 overflow-hidden rounded-full border border-white/60 dark:border-white/10 shadow-lg p-2 transition-all duration-500"
+        {/* Water Droplets Hover Effect */}
+        <AnimatePresence>
+          {isHovered && (
+            <div className="absolute inset-0 pointer-events-none z-0">
+              {[...Array(5)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ y: 20, opacity: 0, scale: 0.5 }}
+                  animate={{ y: -30, opacity: [0, 1, 0], scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.3 }}
+                  className="absolute left-1/2 rounded-full bg-blue-300 dark:bg-blue-400"
+                  style={{
+                    width: 4 + Math.random() * 4,
+                    height: 4 + Math.random() * 4,
+                    left: `${20 + Math.random() * 60}%`,
+                    boxShadow: "0 0 8px rgba(96, 165, 250, 0.6)"
+                  }}
+                />
+              ))}
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1.5, opacity: [0, 0.4, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute inset-0 rounded-full border-2 border-blue-400/30"
+              />
+            </div>
+          )}
+        </AnimatePresence>
+
+        <div className="relative w-24 h-24 overflow-hidden rounded-full border border-white/60 dark:border-white/10 shadow-lg p-2 transition-all duration-500 z-10"
           style={{
             background: "rgba(255,255,255,0.4)",
             backdropFilter: "blur(20px)",

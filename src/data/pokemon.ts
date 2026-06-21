@@ -15,7 +15,7 @@ export const pokemonAssets = {
   // Footer
   snorlax:      "/images/pokemon/snorlax-footer.jpg",
   chikorita:    "/images/pokemon/chikorita-signature.jpg",
-  footerCar:    "/images/pokemon/footer_car.png",
+  footerCar:    "/images/pokemon/footer_car.jfif",
 
   // Easter egg
   squirtle:     "/images/pokemon/squirtle-easteregg.jpg",

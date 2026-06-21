@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import KonamiCode from "@/components/KonamiCode";
 import CursorTrail from "@/components/CursorTrail";
+import Preloader from "@/components/Preloader";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,12 +17,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "B Prasad · Software Engineer",
+  title: "B Prasad · Open Source Contributor & Builder",
   description: "B.Tech IT student at IIIT Lucknow. Building premium web apps, contributing to open source, and solving algorithmic problems.",
-  keywords: ["B Prasad", "IIIT Lucknow", "Software Engineer", "Developer Portfolio", "pxxad", "PJB.DEV"],
+  keywords: ["B Prasad", "IIIT Lucknow", "Builder", "Open Source Contributor", "pxxad", "PJB.DEV"],
   authors: [{ name: "B Prasad" }],
   openGraph: {
-    title: "B Prasad · Software Engineer",
+    title: "B Prasad · Open Source Contributor & Builder",
     description: "B.Tech IT student at IIIT Lucknow. Building premium web apps, contributing to open source, and solving algorithmic problems.",
     url: "https://pbdev.vercel.app",
     siteName: "PJB.DEV Portfolio",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "B Prasad · Software Engineer",
+    title: "B Prasad · Open Source Contributor & Builder",
     description: "B.Tech IT student at IIIT Lucknow. Building premium web apps, contributing to open source, and solving algorithmic problems.",
   }
 };
@@ -43,6 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased font-sans bg-brand-bg text-text-primary">
+        <Preloader />
         <SmoothScroll>
           {children}
         </SmoothScroll>
