@@ -13,8 +13,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [imgError, setImgError] = useState(false);
-  
-  // Spotlight effect coordinates
+
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -26,11 +25,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     const y = e.clientY - top;
     mouseX.set(x);
     mouseY.set(y);
-    
-    // Calculate 3D tilt (max 3 degrees)
-    const rotateX = ((y / height) - 0.5) * -6; // -3 to 3
-    const rotateY = ((x / width) - 0.5) * 6; // -3 to 3
-    
+    const rotateX = ((y / height) - 0.5) * -6;
+    const rotateY = ((x / width) - 0.5) * 6;
     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
   };
 
@@ -43,7 +39,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   const background = useMotionTemplate`
     radial-gradient(
       350px circle at ${mouseX}px ${mouseY}px,
-      rgba(159, 122, 234, 0.15),
+      rgba(139, 92, 246, 0.15),
       transparent 80%
     )
   `;
@@ -53,7 +49,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative rounded-3xl overflow-hidden bg-white dark:bg-soft-blue border border-slate-200 dark:border-white/10 shadow-[0_0_45px_rgba(139,92,246,0.06)] dark:shadow-[0_0_60px_rgba(139,92,246,0.04)] group flex flex-col h-full w-full hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:border-slate-300 dark:hover:border-white/20 transition-colors duration-300"
+      className="relative rounded-3xl overflow-hidden bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800/80 shadow-[0_0_45px_rgba(139,92,246,0.06)] dark:shadow-[0_0_60px_rgba(139,92,246,0.04)] group flex flex-col h-full w-full hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:border-violet-500/30 dark:hover:border-violet-500/30 transition-all duration-300"
       style={{ transition: "transform 0.2s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out" }}
     >
       {/* Dynamic Cursor Spotlight Overlay */}
@@ -63,62 +59,74 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       />
 
       {/* Premium Diagonal Reflective Streak */}
-      <div 
-        className="absolute inset-y-0 -left-[100%] w-[80%] bg-gradient-to-r from-transparent via-white/25 dark:via-white/12 to-transparent -skew-x-12 pointer-events-none z-20 transition-transform duration-700 ease-out group-hover:translate-x-[260%] motion-reduce:hidden" 
+      <div
+        className="absolute inset-y-0 -left-[100%] w-[80%] bg-gradient-to-r from-transparent via-white/20 dark:via-white/5 to-transparent -skew-x-12 pointer-events-none z-20 transition-transform duration-700 ease-out group-hover:translate-x-[260%] motion-reduce:hidden"
       />
 
-      {/* Visual Header/Thumbnail Area */}
-      <div 
-        className="h-48 w-full relative flex items-center justify-center select-none overflow-hidden border-b border-slate-100 dark:border-white/5"
-      >
-        <div className="absolute inset-0 opacity-15 z-0" style={{ background: project.gradient }} />
+      {/* Visual Header / Thumbnail Area */}
+      <div className="h-48 w-full relative flex items-center justify-center select-none overflow-hidden border-b border-slate-100 dark:border-zinc-800/50 bg-slate-950">
+        <div className="absolute inset-0 opacity-25 z-0" style={{ background: project.gradient }} />
+
         {project.banner && !imgError ? (
-          <div className="absolute inset-0 z-0 bg-slate-900">
+          <div className="absolute inset-0 z-0">
             <Image
               src={project.banner}
               alt={project.title}
               fill
-              className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 opacity-90 dark:opacity-70"
+              className="object-cover opacity-100 dark:opacity-70 transition-transform duration-700 ease-in-out group-hover:scale-110"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               onError={() => setImgError(true)}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
           </div>
         ) : (
-          <div className="absolute inset-0 z-0 flex items-center justify-center opacity-40 mix-blend-overlay">
+          <div className="absolute inset-0 z-0 flex items-center justify-center opacity-20 mix-blend-overlay">
             <div className="p-4 rounded-full bg-white/5 backdrop-blur-sm border border-white/10">
               <Code className="w-8 h-8 text-white/50" />
             </div>
           </div>
         )}
-        <div className="absolute inset-0 bg-white/10 dark:bg-soft-blue/20 backdrop-blur-[1px] z-10" />
-        
-        {/* Project Initial Display Logo / Floating Title */}
-        <motion.h4 
+
+        {/* Dynamic Squirtle Companion Integration */}
+        {/* Placed as an absolute decoration anchor inside the banner area so it naturally shifts without crushing card copy layout */}
+        <div className="absolute bottom-2 right-3 w-14 h-14 z-20 pointer-events-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)] opacity-85 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
+          <Image
+            src="/images/pokemon/squirtle-easteregg.jpg"
+            alt="Squirtle Companion"
+            width={56}
+            height={56}
+            className="object-contain"
+          />
+        </div>
+
+        {/* Clear bottom dark scrim to maximize white text readability over bright images */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10 pointer-events-none" />
+
+        {/* Floating Project Title */}
+        <motion.h4
           className="relative z-20 text-white font-bold text-2xl md:text-3xl font-mono tracking-widest drop-shadow-2xl text-center transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2"
-          style={{ textShadow: "0px 4px 20px rgba(0,0,0,0.8), 0px 0px 10px rgba(0,0,0,0.5)" }}
+          style={{ textShadow: "0px 4px 12px rgba(0,0,0,0.9)" }}
         >
           {project.title.toUpperCase()}
         </motion.h4>
       </div>
 
-      {/* Project Content */}
-      <div className="p-8 flex flex-col flex-grow relative z-20 bg-white dark:bg-soft-blue" style={{ zIndex: 30 }}>
-        
+      {/* Project Content Box */}
+      <div className="p-8 flex flex-col flex-grow relative z-20 bg-white dark:bg-zinc-900" style={{ zIndex: 30 }}>
+
         {/* Category Pill */}
         <div className="mb-4">
-          <span className="text-[10px] font-bold font-mono tracking-wider text-sky-600 dark:text-soft-violet bg-sky-50 dark:bg-soft-violet/10 border border-sky-100 dark:border-soft-violet/20 px-3 py-1.5 rounded-full uppercase">
+          <span className="text-[10px] font-bold font-mono tracking-wider text-violet-600 dark:text-violet-400 bg-violet-50 dark:bg-violet-950/40 border border-violet-100 dark:border-violet-900/40 px-3 py-1.5 rounded-full uppercase">
             {project.category}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-zinc-100 mb-3 group-hover:text-sky-600 dark:group-hover:text-soft-violet transition-colors duration-300">
+        <h3 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-zinc-100 mb-3 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors duration-300">
           {project.title}
         </h3>
 
         {/* Description */}
-        <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-medium mb-6 flex-grow">
+        <p className="text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-medium mb-6 flex-grow">
           {project.longDescription}
         </p>
 
@@ -127,20 +135,20 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="text-[11px] font-semibold text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-white/5 px-2.5 py-1 rounded-md border border-slate-200/60 dark:border-white/5"
+              className="text-[11px] font-semibold text-slate-600 dark:text-zinc-400 bg-slate-50 dark:bg-zinc-800/40 px-2.5 py-1 rounded-md border border-slate-200/60 dark:border-zinc-800/60"
             >
               {tag}
             </span>
           ))}
         </div>
 
-        {/* Action Links */}
-        <div className="flex items-center gap-4 mt-auto pt-5 border-t border-slate-100 dark:border-white/5">
+        {/* Action Links Baseline */}
+        <div className="flex items-center gap-4 mt-auto pt-5 border-t border-slate-100 dark:border-zinc-800/60">
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white transition-colors"
           >
             <GitBranch className="w-4 h-4" /> Code
           </a>
@@ -149,7 +157,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm font-semibold text-sky-600 dark:text-soft-violet hover:text-sky-500 dark:hover:text-soft-violet/80 transition-colors ml-auto"
+              className="flex items-center gap-2 text-sm font-semibold text-violet-600 dark:text-violet-400 hover:text-violet-500 dark:hover:text-violet-300 transition-colors ml-auto"
             >
               Live Demo <ExternalLink className="w-4 h-4" />
             </a>

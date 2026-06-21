@@ -27,7 +27,7 @@ export const pokemonAssets = {
   psyduck:      "/images/pokemon/psyduck-404.jpg",
 
   // DSA section
-  ashAura:      "/images/pokemon/ash-dsa.jpg",
+  ashAura:      "/images/pokemon/ash-dsa-new.png",
 
   // About section
   bulbasaur:    "/images/pokemon/bulbasaur-about.jpg",

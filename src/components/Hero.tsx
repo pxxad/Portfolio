@@ -91,11 +91,10 @@ export default function Hero() {
         <motion.div
           animate={{ scale: [1, 1.05, 1], y: [0, -15, 0] }}
           transition={{ duration: 40, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute inset-0 z-0 opacity-15 dark:opacity-20 mix-blend-overlay"
-          style={{ WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)", maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)" }}
+          className="absolute inset-0 z-0 opacity-[0.45] dark:opacity-[0.55] mix-blend-overlay"
         >
-          <Image src="/images/pokemon/hero-bg-light.jfif" alt="Hero background" fill className="object-cover object-center w-full h-full dark:hidden" priority />
-          <Image src="/images/pokemon/hero-bg-dark.jpg" alt="Hero background dark" fill className="object-cover object-center w-full h-full hidden dark:block" priority />
+          <Image src="/images/pokemon/hero-bg-light.jpg" alt="Hero background" fill className="object-cover object-[62%_center] w-full h-full dark:hidden" priority />
+          <Image src="/images/pokemon/hero-bg-dark.jpg" alt="Hero background dark" fill className="object-cover object-[62%_center] w-full h-full hidden dark:block" priority />
         </motion.div>
 
         {/* Layer 1: Deep Background Mist */}
@@ -237,7 +236,7 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-2 right-2 opacity-20 max-w-[80px] w-20 h-20 transition-opacity duration-500 z-20"
+              className="absolute -bottom-3 -right-3 opacity-40 hover:opacity-80 max-w-[90px] w-[90px] h-[90px] transition-opacity duration-500 z-20"
             >
               <Image
                 src={pokemonAssets.squirtle}

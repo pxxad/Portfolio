@@ -68,10 +68,9 @@ export default function DSA() {
           <Image
             src={pokemonAssets.ashAura}
             alt="Ash Aura Watermark"
-            width={400}
-            height={400}
-            className="absolute pointer-events-none z-0 object-contain opacity-70 mix-blend-screen"
-            style={{ WebkitMaskImage: "radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)", maskImage: "radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%)" }}
+            width={420}
+            height={420}
+            className="absolute pointer-events-none z-0 object-contain opacity-40"
             priority
           />
         </motion.div>
