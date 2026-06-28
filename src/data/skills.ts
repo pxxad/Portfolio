@@ -20,7 +20,7 @@ export const skillsData: SkillCategory[] = [
     ]
   },
   {
-    title: "Frontend & UI",
+    title: "Frameworks",
     skills: [
       { name: "React", iconType: "react", proficiency: 70 },
       { name: "Next.js", iconType: "nextjs", proficiency: 70 },
@@ -29,7 +29,7 @@ export const skillsData: SkillCategory[] = [
     ]
   },
   {
-    title: "Tools & OS",
+    title: "Developer Tools",
     skills: [
       { name: "Git", iconType: "git", proficiency: 80 },
       { name: "GitHub", iconType: "github", proficiency: 80 },
@@ -38,7 +38,7 @@ export const skillsData: SkillCategory[] = [
     ]
   },
   {
-    title: "Core & Focus",
+    title: "Coursework",
     skills: [
       { name: "Data Structures", iconType: "dsa", proficiency: 85 },
       { name: "Algorithms", iconType: "algo", proficiency: 80 },

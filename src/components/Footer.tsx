@@ -20,7 +20,7 @@ export default function Footer() {
         {/* Column A: Personal Identity Brand */}
         <div className="flex flex-col items-start text-left space-y-2">
           <h3 className="text-2xl font-extrabold tracking-tight text-white">
-            Prasad B<span className="text-violet-500">.</span>
+            Prasad <span className="text-violet-500">JB</span>
           </h3>
           <p className="text-xs text-zinc-400 leading-relaxed max-w-sm">
             Information Technology Student at IIIT Lucknow. Architecting highly optimized, elegant web applications and exploring complex data architectures.

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-export default function LoadingScreen() {
+export default function Loader() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

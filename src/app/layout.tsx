@@ -4,7 +4,8 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import KonamiCode from "@/components/KonamiCode";
 import CursorAura from "@/components/CursorAura";
-import Preloader from "@/components/Preloader";
+import Loader from "@/components/Loader";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -44,12 +45,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased font-sans bg-brand-bg text-text-primary">
-        <Preloader />
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
-        <KonamiCode />
-        <CursorAura />
+        <ThemeProvider>
+          <Loader />
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
+          <KonamiCode />
+          <CursorAura />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,0 +1,25 @@
+PORTFOLIO UI/UX ENGINEERING REPORT
+==================================
+
+1. COMPONENT COMPRESSION & RUNTIME OVERFLOW INVERSION (LoadingScreen.tsx)
+During the initial deployment of the dynamic LoadingScreen component, a critical rendering bug occurred where the loading GIF asset was being inverted (flipped upside down), squished small, and abruptly cut off before its animation sequence completed. 
+
+This issue was traced back to restrictive height bounding boxes (specifically the 'h-64' Tailwind class) combined with absolute margins. These constraints forced the Next.js/Tailwind rendering engine to apply inverted matrix transformations on high-DPI screens as it attempted to compress the document tree structure to fit within the impossible bounding parameters. 
+
+Resolution: We executed a structural layout restructure by completely removing the height boundaries and implementing a rigid, roomy aspect frame using explicit responsive Tailwind classes ('w-72 h-72 md:w-96 md:h-96'). Furthermore, we re-aligned the inner branding tags into normal document flow to prevent layout detachment. Finally, the runtime timeout was extended from 3500ms to 6000ms, granting the asset loops ample time to finish smoothly. We also ensured the global scroll lock (`document.body.style.overflow = "hidden"`) was properly cleared to `"unset"` at the tail end of this new 6-second execution threshold.
+
+2. COMPILER ASSET CACHING BLOCKADES & DIRECTORY CONFUSION
+A severe environment issue was encountered during the layout overhaul where live code changes failed to surface on the local dev server, effectively freezing old styles.
+
+This was diagnosed as a multi-lockfile directory confusion issue. The Next.js compiler was mistakenly mapping global user profiles ('C:\Users\Lenovo\') as root caches due to conflicting cache hierarchies, preventing the new Tailwind classes from being compiled and injected into the active stylesheet.
+
+Resolution: We implemented hard cache-busting procedures (e.g. running 'rm -rf .next' to purge the corrupted build cache) and utilized strict component fallbacks to force the compiler to rebuild the dependency tree cleanly from the designated source directory.
+
+3. STATE-DELAYED MOTION OVERLAYS FOR SYSTEM THEMING (ThemeProvider.tsx)
+When transitioning between Light Mode and Dark Mode, the immediate DOM class swap created jarring layout jumps and harsh visual flashes.
+
+Resolution: We built advanced custom theme transitions utilizing an `AnimatePresence` stack to generate two distinct screen-space overlays:
+- Thunder FX (Dark to Light): A vertical expansion scale and erratic horizontal jitter layout that mimics a bright cyan lightning flash overlay ('from-cyan-400 via-white to-sky-400 mix-blend-screen').
+- Dark Void FX (Light to Dark): A circular center-collapsing dark mask scaling outwardly ('bg-zinc-950 shadow-[0_0_120px_rgba(0,0,0,1)]') to smoothly pull focus into dark mode.
+
+Crucially, an explicit mid-point `setTimeout` delay of 400ms was implemented during state execution. This state-delayed motion overlay ensures that the physical background DOM swap happens precisely behind the flash/void apex point, completely masking any layout jumps and delivering a highly premium, seamless user experience.

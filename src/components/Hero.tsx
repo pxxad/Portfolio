@@ -4,6 +4,10 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, GitBranch } from "lucide-react";
 
+import Image from "next/image";
+import { pokemonAssets } from "@/data/pokemon";
+import ScrollIndicator from "./ScrollIndicator";
+
 const LinkedinIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -11,9 +15,6 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
     <circle cx="4" cy="4" r="2"></circle>
   </svg>
 );
-import Image from "next/image";
-import { pokemonAssets } from "@/data/pokemon";
-import ScrollIndicator from "./ScrollIndicator";
 
 // ── Cursor Reactive Glow ─────────────────────────────────────────────────────
 function CursorGlow() {
@@ -98,22 +99,22 @@ export default function Hero() {
         </motion.div>
 
         {/* Layer 1: Deep Background Mist */}
-        <motion.div 
+        <motion.div
           animate={{ x: [0, 30, -10, 0], y: [0, -20, 20, 0] }}
           transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[-20%] left-[-10%] w-[60%] h-[70%] rounded-full bg-sky-300/15 dark:bg-sky-500/10 blur-[120px]" 
+          className="absolute top-[-20%] left-[-10%] w-[60%] h-[70%] rounded-full bg-sky-300/15 dark:bg-sky-500/10 blur-[120px]"
         />
         {/* Layer 2: Soft Violet Cloud */}
-        <motion.div 
+        <motion.div
           animate={{ x: [0, -30, 20, 0], y: [0, 30, -10, 0] }}
           transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[60%] rounded-full bg-soft-violet/10 dark:bg-soft-violet/10 blur-[150px]" 
+          className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[60%] rounded-full bg-soft-violet/10 dark:bg-soft-violet/10 blur-[150px]"
         />
         {/* Layer 3: Central Highlight */}
-        <motion.div 
+        <motion.div
           animate={{ scale: [1, 1.1, 0.9, 1], opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[20%] left-[20%] w-[40%] h-[40%] rounded-full bg-white/30 dark:bg-white/5 blur-[100px]" 
+          className="absolute top-[20%] left-[20%] w-[40%] h-[40%] rounded-full bg-white/30 dark:bg-white/5 blur-[100px]"
         />
       </div>
 
@@ -171,12 +172,21 @@ export default function Hero() {
             variants={fadeUpVariant}
             className="flex flex-wrap items-center gap-4"
           >
-            <button
-              onClick={scrollToProjects}
+            <a
+              href="/Resume_prasadJB.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 font-mono font-bold tracking-wider text-xs rounded-full bg-text-primary text-brand-bg hover:bg-text-secondary transition-all duration-300 hover:scale-110 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.2)]"
             >
-              View Projects
+              Resume
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+
+            <button
+              onClick={scrollToProjects}
+              className="flex items-center gap-2 px-6 py-3 font-mono font-bold uppercase tracking-wider text-xs rounded-full bg-slate-100 dark:bg-white/5 text-slate-900 dark:text-white border border-slate-200 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-white/10 transition-all duration-300 hover:scale-[1.02]"
+            >
+              Projects
             </button>
 
             <a
@@ -211,7 +221,7 @@ export default function Hero() {
           <div className="relative w-full max-w-sm aspect-square md:aspect-video lg:aspect-square rounded-[2rem] border border-slate-200/80 dark:border-white/10 bg-white/80 dark:bg-zinc-900/40 backdrop-blur-md shadow-xl overflow-hidden flex items-center justify-center group transition-opacity duration-500">
 
             {/* Tech Wireframe / Grid Background */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#0284c7_1px,transparent_1px),linear-gradient(to_bottom,#0284c7_1px,transparent_1px)] bg-[size:24px_24px] opacity-[0.12] dark:opacity-[0.07] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]" />
 
             {/* Glowing abstract core */}
             <div className="absolute w-32 h-32 bg-[#7C5CFC]/30 rounded-full blur-[50px] group-hover:scale-110 transition-transform duration-700" />
