@@ -105,6 +105,7 @@ export default function BulbasaurEasterEgg() {
             src={pokemonAssets.bulbasaur}
             alt="Bulbasaur"
             fill
+            sizes="96px"
             className="object-contain p-2 rounded-full transition-transform duration-500 group-hover:scale-110"
             priority
           />

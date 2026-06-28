@@ -81,6 +81,7 @@ export default function PokemonEasterEgg() {
             src={pokemonAssets.squirtle}
             alt="Squirtle"
             fill
+            sizes="96px"
             className="object-contain p-2 rounded-full transition-transform duration-500 group-hover:scale-110"
             priority
           />

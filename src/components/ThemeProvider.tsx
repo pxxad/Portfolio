@@ -9,14 +9,16 @@ type ThemeContextType = { theme: Theme; toggleTheme: () => void; };
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
+  const [mounted, setMounted] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [fxType, setFxType] = useState<"thunder" | "void">("void");
 
-  // Sync state with HTML tag on initial load
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
-  }, [theme]);
+    setMounted(true);
+    const savedTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+    setTheme(savedTheme);
+  }, []);
 
   const toggleTheme = () => {
     if (isTransitioning) return;
@@ -24,26 +26,23 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     const currentTheme = theme;
     const nextTheme = currentTheme === "dark" ? "light" : "dark";
     
-    // CRITICAL FIX: Set the effect based on the CURRENT theme so it is visible!
     setFxType(currentTheme === "dark" ? "thunder" : "void");
     setIsTransitioning(true);
 
-    // Physical DOM class flip happens right at the 400ms peak of the transition
     setTimeout(() => {
       setTheme(nextTheme);
       document.documentElement.classList.toggle("dark", nextTheme === "dark");
-    }, 400);
+    }, 450);
 
-    // Unmount animation overlays after 800ms total
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 800);
+    }, 900);
   };
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
-
+      {mounted && (
       <AnimatePresence>
         {isTransitioning && fxType === "thunder" && (
           <motion.div 
@@ -61,14 +60,47 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
 
         {isTransitioning && fxType === "void" && (
           <motion.div 
-            initial={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%)' }}
-            animate={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%, 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%)' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
-            className="fixed inset-0 z-[999999] bg-[#0A0F1F] pointer-events-none"
-          />
+            transition={{ duration: 0.9 }}
+            className="fixed inset-0 z-[999999] pointer-events-none flex flex-col justify-start"
+          >
+            {/* Layer 1: Fluid Ink Spill Wave Cover */}
+            <motion.svg 
+              viewBox="0 0 1440 800" 
+              preserveAspectRatio="none" 
+              className="w-full h-[120vh] fill-[#0A0F1F]"
+              style={{ filter: "drop-shadow(0 20px 30px rgba(10,15,31,0.7))" }}
+            >
+              <motion.path 
+                initial={{ d: "M0,0 L1440,0 L1440,0 Q720,0 0,0 Z" }}
+                animate={{ 
+                  d: [
+                    "M0,0 L1440,0 L1440,50 Q720,150 0,50 Z", 
+                    "M0,0 L1440,0 L1440,500 Q720,800 0,500 Z", 
+                    "M0,0 L1440,0 L1440,1200 Q720,1200 0,1200 Z"
+                  ] 
+                }}
+                transition={{ 
+                  duration: 0.6, 
+                  times: [0, 0.5, 1],
+                  ease: "easeInOut" 
+                }}
+              />
+            </motion.svg>
+            
+            {/* Layer 2: Seamless background safety block matching the ink color */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 0, 1, 1] }}
+              transition={{ duration: 0.8, times: [0, 0.5, 0.6, 1] }}
+              className="absolute inset-0 bg-[#0A0F1F] z-[-1]"
+            />
+          </motion.div>
         )}
       </AnimatePresence>
+      )}
     </ThemeContext.Provider>
   );
 }

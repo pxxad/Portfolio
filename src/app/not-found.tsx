@@ -25,6 +25,7 @@ export default function NotFound() {
             src={pokemonAssets.psyduck}
             alt="Confused Psyduck 404"
             fill
+            sizes="192px"
             className="object-contain transition-transform duration-500 group-hover:scale-105"
             priority
           />

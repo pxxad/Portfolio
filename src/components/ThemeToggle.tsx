@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { pokemonAssets } from "@/data/pokemon";
+import { useTheme } from "./ThemeProvider";
 
 // ── Gengar Hover Effects ────────────────────────────────────────────────────
 function GengarHoverEffects({ active }: { active: boolean }) {
@@ -130,79 +131,14 @@ function PikachuHoverEffects({ active }: { active: boolean }) {
 
 // ── Main ThemeToggle ────────────────────────────────────────────────────────
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === "dark";
   const [mounted, setMounted] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [transitioning, setTransitioning] = useState(false);
-
-  // Ripple overlay
-  const [ripple, setRipple] = useState<{
-    active: boolean;
-    isDarkTransition: boolean;
-    x: number;
-    y: number;
-  } | null>(null);
 
   useEffect(() => {
     setMounted(true);
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-      setIsDark(true);
-      document.documentElement.classList.add("dark");
-    } else {
-      setIsDark(false);
-      document.documentElement.classList.remove("dark");
-    }
   }, []);
-
-  const toggleTheme = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
-    if (transitioning) return;
-    const newTheme = !isDark;
-
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mediaQuery.matches) {
-      setIsDark(newTheme);
-      document.documentElement.classList.toggle("dark", newTheme);
-      localStorage.setItem("theme", newTheme ? "dark" : "light");
-      return;
-    }
-
-    setTransitioning(true);
-    const x = e.clientX;
-    const y = e.clientY;
-
-    if (newTheme) {
-      // ─── Gengar: Dark Smoke Explosion ───────────────────────────────
-      setRipple({ active: true, isDarkTransition: true, x, y });
-
-      setTimeout(() => {
-        setIsDark(true);
-        document.documentElement.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-      }, 400); // Trigger theme midway
-
-      setTimeout(() => {
-        setRipple(null);
-        setTransitioning(false);
-      }, 900);
-    } else {
-      // ─── Pikachu: Lightning Burst ──────────────────────────────────
-      setRipple({ active: true, isDarkTransition: false, x, y });
-
-      setTimeout(() => {
-        setIsDark(false);
-        document.documentElement.classList.remove("dark");
-        localStorage.setItem("theme", "light");
-      }, 400);
-
-      setTimeout(() => {
-        setRipple(null);
-        setTransitioning(false);
-      }, 900);
-    }
-  }, [isDark, transitioning]);
 
   if (!mounted) return <div className="w-12 h-12 rounded-full" />;
 
@@ -265,30 +201,6 @@ export default function ThemeToggle() {
           </AnimatePresence>
         </div>
       </button>
-
-      {/* Full-viewport ripple overlay */}
-      {ripple && ripple.active && (
-        <motion.div
-          initial={{ scale: 0, opacity: 1 }}
-          animate={{ scale: 1, opacity: [1, 1, 0] }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], times: [0, 0.6, 1] }}
-          style={{
-            position: "fixed",
-            left: ripple.x,
-            top: ripple.y,
-            transform: "translate(-50%, -50%)",
-            width: "300vmax",
-            height: "300vmax",
-            borderRadius: "50%",
-            background: ripple.isDarkTransition
-              ? "radial-gradient(circle, rgba(168, 85, 247, 0.9) 0%, rgba(88, 28, 135, 0.9) 30%, #0A0F1F 70%)"
-              : "radial-gradient(circle, rgba(250, 204, 21, 0.9) 0%, rgba(253, 224, 71, 0.9) 30%, #FFFFFF 70%)",
-            zIndex: 9999,
-            pointerEvents: "none",
-            mixBlendMode: ripple.isDarkTransition ? "normal" : "screen",
-          }}
-        />
-      )}
     </div>
   );
 }

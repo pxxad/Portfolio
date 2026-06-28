@@ -5,6 +5,7 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { GitBranch, ExternalLink, Code } from "lucide-react";
 import Image from "next/image";
 import { Project } from "@/data/projects";
+import { pokemonAssets } from "@/data/pokemon";
 
 interface ProjectCardProps {
   project: Project;
@@ -90,7 +91,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {/* Placed as an absolute decoration anchor inside the banner area so it naturally shifts without crushing card copy layout */}
         <div className="absolute bottom-2 right-3 w-14 h-14 z-20 pointer-events-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)] opacity-85 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
           <Image
-            src="/images/pokemon/squirtle-easteregg.jpg"
+            src={pokemonAssets.squirtle}
             alt="Squirtle Companion"
             width={56}
             height={56}

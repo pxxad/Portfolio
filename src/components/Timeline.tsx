@@ -164,6 +164,7 @@ export default function Timeline() {
                   src={pokemonAssets.pokemonTower}
                   alt="Pokemon Stack Tower"
                   fill
+                  sizes="192px"
                   className="object-contain drop-shadow-md transition-transform duration-500 group-hover:scale-105"
                   priority
                 />

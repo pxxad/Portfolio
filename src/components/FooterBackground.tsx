@@ -24,6 +24,7 @@ export default function FooterBackground({
           src={pokemonAssets.footerCar}
           alt="Footer Car"
           fill
+          sizes="100vw"
           priority
           className={`
             object-cover
@@ -39,6 +40,7 @@ export default function FooterBackground({
           src={pokemonAssets.snorlax}
           alt="Footer Background Snorlax"
           fill
+          sizes="100vw"
           priority
           className={`
             object-contain
