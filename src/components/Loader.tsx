@@ -16,7 +16,7 @@ export default function Loader() {
       setIsFirstVisit(false);
       const timer = setTimeout(() => {
         setIsLoading(false);
-      }, 300); // 300ms minimal transition
+      }, 800); // 800ms loading transition for normal loader
       
       return () => clearTimeout(timer);
     } else {
@@ -51,7 +51,7 @@ export default function Loader() {
         >
           {isFirstVisit === true ? (
             <>
-              {/* Central Content Matrix */}
+              {/* Central Content Matrix - GIF LOADER */}
               <div className="flex flex-col items-center justify-center gap-8 max-w-full">
                 
                 {/* THE WIDESCREEN CONTAINER FRAME */}
@@ -88,21 +88,29 @@ export default function Loader() {
               </div>
             </>
           ) : isFirstVisit === false ? (
-            // Lightweight loader for subsequent visits
+            // Normal lightweight loader
             <div className="flex flex-col items-center justify-center relative z-20">
-              <h1 className="text-4xl sm:text-5xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 font-mono mb-2 animate-pulse">
+              <h1 className="text-4xl sm:text-5xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 font-mono mb-4 animate-pulse">
                 PJB.DEV
               </h1>
+              <div className="w-48 h-[2px] bg-white/10 rounded-full overflow-hidden relative">
+                <motion.div 
+                  className="absolute top-0 left-0 h-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400"
+                  initial={{ width: "0%" }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: 0.7, ease: "easeInOut" }}
+                />
+              </div>
             </div>
           ) : (
-            // Initial empty state to prevent page flash before useEffect reads sessionStorage
+            // Initial empty state to prevent page flash
             <div className="flex flex-col items-center justify-center relative z-20 opacity-0">
               <h1 className="text-4xl sm:text-5xl font-black tracking-wider text-transparent font-mono mb-2">
                 PJB.DEV
               </h1>
             </div>
           )}
-    
+
           {/* Synchronized keyframes to match the full 12-second duration layout tracking seamlessly */}
           <style jsx global>{`
             @keyframes progressAnimation {
@@ -110,7 +118,7 @@ export default function Loader() {
               100% { width: 100%; }
             }
           `}</style>
-    
+
         </motion.div>
       )}
     </AnimatePresence>
