@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isFirstVisit, setIsFirstVisit] = useState(true);
+  const [isFirstVisit, setIsFirstVisit] = useState<boolean | null>(null);
   const [isMounted, setIsMounted] = useState(true);
 
   useEffect(() => {
@@ -21,6 +21,7 @@ export default function LoadingScreen() {
       return () => clearTimeout(timer);
     } else {
       // First visit in session
+      setIsFirstVisit(true);
       sessionStorage.setItem("introPlayed", "true");
       
       // 1. Instantly lock body scroll to keep the viewport perfectly static
@@ -48,7 +49,7 @@ export default function LoadingScreen() {
           transition={{ duration: 0.5, ease: "easeInOut" }}
           className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#0A0F1F] select-none p-4"
         >
-          {isFirstVisit ? (
+          {isFirstVisit === true ? (
             <>
               {/* Central Content Matrix */}
               <div className="flex flex-col items-center justify-center gap-8 max-w-full">
@@ -86,10 +87,17 @@ export default function LoadingScreen() {
                 />
               </div>
             </>
-          ) : (
+          ) : isFirstVisit === false ? (
             // Lightweight loader for subsequent visits
             <div className="flex flex-col items-center justify-center relative z-20">
               <h1 className="text-4xl sm:text-5xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 font-mono mb-2 animate-pulse">
+                PJB.DEV
+              </h1>
+            </div>
+          ) : (
+            // Initial empty state to prevent page flash before useEffect reads sessionStorage
+            <div className="flex flex-col items-center justify-center relative z-20 opacity-0">
+              <h1 className="text-4xl sm:text-5xl font-black tracking-wider text-transparent font-mono mb-2">
                 PJB.DEV
               </h1>
             </div>
