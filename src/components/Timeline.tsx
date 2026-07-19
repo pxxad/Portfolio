@@ -77,7 +77,7 @@ export default function Timeline() {
             />
 
             {/* Timeline Cards */}
-            <div className="flex flex-col gap-16">
+            <div className="flex flex-col gap-8 md:gap-16">
               {timelineData.map((event, index) => {
                 const isLeft = index % 2 === 0;
 
@@ -95,16 +95,18 @@ export default function Timeline() {
                         whileInView={{ scale: 2.2, opacity: [0, 0.4, 0] }}
                         viewport={{ once: true, margin: "-150px" }}
                         transition={{ duration: 1, ease: "easeOut" }}
-                        className="absolute w-12 h-12 rounded-full bg-sky-400 dark:bg-[#9F7AEA] pointer-events-none"
+                        className="absolute w-8 h-8 md:w-12 md:h-12 rounded-full bg-sky-400 dark:bg-[#9F7AEA] pointer-events-none"
                       />
                       <motion.div
                         initial={{ scale: 0.8 }}
                         whileInView={{ scale: [0.8, 1.15, 1] }}
                         viewport={{ once: true, margin: "-150px" }}
                         transition={{ duration: 0.6, ease: "easeInOut" }}
-                        className="w-12 h-12 rounded-full border-[3px] border-white dark:border-brand-bg bg-slate-50 dark:bg-brand-alt shadow-[0_0_0_1px_rgba(0,0,0,0.05),0_4px_12px_-4px_rgba(0,0,0,0.05)] dark:shadow-none flex items-center justify-center relative z-10"
+                        className="w-8 h-8 md:w-12 md:h-12 rounded-full border-[3px] border-white dark:border-brand-bg bg-slate-50 dark:bg-brand-alt shadow-[0_0_0_1px_rgba(0,0,0,0.05),0_4px_12px_-4px_rgba(0,0,0,0.05)] dark:shadow-none flex items-center justify-center relative z-10"
                       >
-                        <EventIcon category={event.category} />
+                        <div className="scale-75 md:scale-100 flex items-center justify-center">
+                          <EventIcon category={event.category} />
+                        </div>
                       </motion.div>
                     </div>
 
@@ -114,11 +116,11 @@ export default function Timeline() {
                       whileInView={{ opacity: 1, x: 0, y: 0 }}
                       viewport={{ once: true, margin: "-100px" }}
                       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                      className={`w-full md:w-[45%] pl-16 md:pl-0 ${
+                      className={`w-full md:w-[45%] pl-12 md:pl-0 ${
                         isLeft ? "md:text-right md:pr-14" : "md:text-left md:pl-14"
                       }`}
                     >
-                      <div className="bg-white dark:bg-brand-alt p-8 rounded-3xl border border-slate-200 dark:border-white/5 shadow-sm transition-all duration-500 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)] hover:border-slate-300 dark:hover:border-white/20 hover:translate-y-[-4px] inline-block text-left w-full">
+                      <div className="bg-white dark:bg-brand-alt p-5 md:p-8 rounded-2xl md:rounded-3xl border border-slate-200 dark:border-white/5 shadow-sm transition-all duration-500 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)] hover:border-slate-300 dark:hover:border-white/20 hover:translate-y-[-4px] inline-block text-left w-full">
                         {/* Year Banner */}
                         <div className="flex items-center gap-2 mb-4">
                           <span className="text-[11px] font-bold font-mono tracking-wider text-sky-600 dark:text-[#9F7AEA] bg-sky-50 dark:bg-[#9F7AEA]/10 border border-sky-100 dark:border-[#9F7AEA]/20 px-3 py-1.5 rounded-full uppercase">

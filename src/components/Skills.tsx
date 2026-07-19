@@ -48,22 +48,22 @@ export default function Skills() {
                   <div className="absolute inset-0 w-[200%] h-[200%] top-[-50%] left-[-50%] animate-spin [animation-duration:4s] bg-[conic-gradient(from_0deg,transparent_60%,#8b5cf6_100%)] z-0" />
                   
                   {/* The Content Mask Shield */}
-                  <div className="w-full h-full bg-white dark:bg-[#09090b] rounded-[15px] p-6 relative z-10 flex flex-col">
+                  <div className="w-full h-full bg-white dark:bg-[#09090b] rounded-[15px] p-4 md:p-6 relative z-10 flex flex-col">
                     
                     {/* Category Header */}
-                    <div className="flex items-center gap-3.5 mb-8 border-b border-slate-100 dark:border-white/5 pb-4">
-                      <div className="w-10 h-10 rounded-2xl bg-sky-100 dark:bg-sky-500/10 flex items-center justify-center text-sky-600 dark:text-sky-400 transition-transform duration-300 group-hover:scale-110">
-                        <Icon className="w-5 h-5" />
+                    <div className="flex items-center gap-2 md:gap-3.5 mb-4 md:mb-8 border-b border-slate-100 dark:border-white/5 pb-2 md:pb-4">
+                      <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl md:rounded-2xl bg-sky-100 dark:bg-sky-500/10 flex items-center justify-center text-sky-600 dark:text-sky-400 transition-transform duration-300 group-hover:scale-110">
+                        <Icon className="w-4 h-4 md:w-5 md:h-5" />
                       </div>
-                      <h3 className="text-base font-bold text-slate-900 dark:text-white font-mono tracking-wide">
+                      <h3 className="text-sm md:text-base font-bold text-slate-900 dark:text-white font-mono tracking-wide">
                         {category.title}
                       </h3>
                     </div>
 
                     {/* Skills List */}
-                    <div className="flex flex-col gap-5">
+                    <div className="flex flex-col gap-3 md:gap-5">
                       {category.skills.map((skill) => (
-                        <div key={skill.name} className="flex flex-col gap-1.5 group/item">
+                        <div key={skill.name} className="flex flex-col gap-1 md:gap-1.5 group/item">
                           <div className="flex justify-between items-center text-xs font-mono font-medium text-slate-500 dark:text-slate-400 group-hover/item:text-slate-900 dark:group-hover/item:text-white transition-colors">
                             <span>{skill.name}</span>
                             <span className="opacity-0 group-hover/item:opacity-100 transition-opacity duration-300">

@@ -93,7 +93,7 @@ export default function Hero() {
         {/* Left Column: Typography & Content */}
         <motion.div
           style={{ y: textY, opacity }}
-          className="flex-1 flex flex-col items-start text-left w-full"
+          className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left w-full"
           variants={staggerContainer}
           initial="hidden"
           animate="show"
@@ -113,7 +113,7 @@ export default function Hero() {
           <div className="relative inline-block select-none mb-4">
             <motion.h1
               variants={fadeUpVariant}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight relative z-10 text-slate-900 dark:text-white drop-shadow-sm font-mono"
+              className="text-[2.5rem] leading-[1.1] sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight relative z-10 text-slate-900 dark:text-white drop-shadow-sm font-mono"
             >
               B Prasad
             </motion.h1>
@@ -177,16 +177,15 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Right Column: Visual Anchor */}
         <motion.div
           style={{ opacity }}
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="flex-1 w-full flex justify-center lg:justify-end items-center relative"
+          className="flex-1 w-full flex justify-center lg:justify-end items-center relative mt-4 lg:mt-0"
         >
           {/* Glassmorphic Container (Abstract Tech Visual / Blueprint) */}
-          <div className="relative w-full max-w-[340px] aspect-square md:aspect-video lg:aspect-square rounded-[2rem] border border-slate-200/80 dark:border-white/10 bg-white/80 dark:bg-zinc-900/40 backdrop-blur-md shadow-xl overflow-hidden flex items-center justify-center group transition-opacity duration-500">
+          <div className="relative w-[65%] max-w-[200px] sm:max-w-[240px] md:max-w-[280px] lg:max-w-[340px] aspect-square lg:aspect-square rounded-[2rem] border border-slate-200/80 dark:border-white/10 bg-white/80 dark:bg-zinc-900/40 backdrop-blur-md shadow-xl overflow-hidden flex items-center justify-center group transition-opacity duration-500 mx-auto lg:mx-0">
 
             {/* Tech Wireframe / Grid Background */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#0284c7_1px,transparent_1px),linear-gradient(to_bottom,#0284c7_1px,transparent_1px)] bg-[size:24px_24px] opacity-[0.12] dark:opacity-[0.07] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]" />

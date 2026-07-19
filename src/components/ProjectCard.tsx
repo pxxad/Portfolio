@@ -50,7 +50,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative rounded-3xl overflow-hidden bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800/80 shadow-[0_0_45px_rgba(139,92,246,0.06)] dark:shadow-[0_0_60px_rgba(139,92,246,0.04)] group flex flex-col h-full w-full hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:border-violet-500/30 dark:hover:border-violet-500/30 transition-all duration-300"
+      className="relative rounded-2xl md:rounded-3xl overflow-hidden bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800/80 shadow-[0_0_45px_rgba(139,92,246,0.06)] dark:shadow-[0_0_60px_rgba(139,92,246,0.04)] group flex flex-col h-full w-full hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:border-violet-500/30 dark:hover:border-violet-500/30 transition-all duration-300"
       style={{ transition: "transform 0.2s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out" }}
     >
       {/* Dynamic Cursor Spotlight Overlay */}
@@ -65,7 +65,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       />
 
       {/* Visual Header / Thumbnail Area */}
-      <div className="h-48 w-full relative flex items-center justify-center select-none overflow-hidden border-b border-slate-100 dark:border-zinc-800/50 bg-slate-950">
+      <div className="h-32 sm:h-40 md:h-48 w-full relative flex items-center justify-center select-none overflow-hidden border-b border-slate-100 dark:border-zinc-800/50 bg-slate-950">
         <div className="absolute inset-0 opacity-25 z-0" style={{ background: project.gradient }} />
 
         {project.banner && !imgError ? (
@@ -89,7 +89,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Dynamic Squirtle Companion Integration */}
         {/* Placed as an absolute decoration anchor inside the banner area so it naturally shifts without crushing card copy layout */}
-        <div className="absolute bottom-2 right-3 w-14 h-14 z-20 pointer-events-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)] opacity-85 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
+        <div className="absolute bottom-2 right-3 w-10 h-10 md:w-14 md:h-14 z-20 pointer-events-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.3)] opacity-85 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300">
           <Image
             src={pokemonAssets.squirtle}
             alt="Squirtle Companion"
@@ -112,7 +112,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Project Content Box */}
-      <div className="p-8 flex flex-col flex-grow relative z-20 bg-white dark:bg-zinc-900" style={{ zIndex: 30 }}>
+      <div className="p-4 sm:p-6 md:p-8 flex flex-col flex-grow relative z-20 bg-white dark:bg-zinc-900" style={{ zIndex: 30 }}>
 
         {/* Category Pill */}
         <div className="mb-4">
@@ -122,17 +122,17 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Title */}
-        <h3 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-zinc-100 mb-3 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors duration-300">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-extrabold tracking-tight text-slate-900 dark:text-zinc-100 mb-1.5 md:mb-3 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors duration-300">
           {project.title}
         </h3>
 
         {/* Description */}
-        <p className="text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-medium mb-6 flex-grow">
+        <p className="text-xs md:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed font-medium mb-4 md:mb-6 flex-grow">
           {project.longDescription}
         </p>
 
         {/* Tech Stack Badges */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-8">
           {project.tags.map((tag) => (
             <span
               key={tag}
@@ -144,7 +144,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Action Links Baseline */}
-        <div className="flex items-center gap-4 mt-auto pt-5 border-t border-slate-100 dark:border-zinc-800/60">
+        <div className="flex items-center gap-2 sm:gap-4 mt-auto pt-3 md:pt-5 border-t border-slate-100 dark:border-zinc-800/60 w-full justify-between sm:justify-start">
           <a
             href={project.githubUrl}
             target="_blank"
