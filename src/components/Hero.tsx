@@ -113,7 +113,7 @@ export default function Hero() {
           <div className="relative inline-block select-none mb-4">
             <motion.h1
               variants={fadeUpVariant}
-              className="text-5xl md:text-6xl lg:text-8xl font-black tracking-tight relative z-10 text-slate-900 dark:text-white drop-shadow-sm font-mono"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight relative z-10 text-slate-900 dark:text-white drop-shadow-sm font-mono"
             >
               B Prasad
             </motion.h1>
@@ -138,7 +138,7 @@ export default function Hero() {
           {/* CTA buttons */}
           <motion.div
             variants={fadeUpVariant}
-            className="flex flex-wrap items-center gap-4"
+            className="flex flex-wrap justify-center lg:justify-start items-center gap-4 w-full"
           >
             <a
               href="/Resume_prasadJB.pdf"

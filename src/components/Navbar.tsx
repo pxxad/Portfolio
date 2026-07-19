@@ -55,8 +55,8 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="max-w-[1440px] mx-auto px-4 md:px-6">
-          <nav className="flex items-center justify-between glass-navbar backdrop-blur-xl bg-white/70 dark:bg-black/70 px-4 md:px-6 py-3.5 md:py-4 rounded-full shadow-sm max-w-6xl mx-auto">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-6">
+          <nav className="flex items-center justify-between glass-navbar backdrop-blur-xl bg-white/70 dark:bg-black/70 px-4 md:px-8 py-3.5 md:py-4 rounded-full shadow-sm w-full mx-auto">
             {/* Logo */}
             <Link
               href="/#home"
