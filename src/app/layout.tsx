@@ -1,10 +1,6 @@
 import type { Metadata, Viewport } from "next";
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-};
+
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -12,6 +8,12 @@ import KonamiCode from "@/components/KonamiCode";
 
 import Loader from "@/components/Loader";
 import ThemeProvider from "@/components/ThemeProvider";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
 
 const inter = Inter({
   variable: "--font-inter",

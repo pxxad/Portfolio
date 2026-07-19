@@ -186,7 +186,7 @@ export default function Hero() {
           className="flex-1 w-full flex justify-center lg:justify-end items-center relative"
         >
           {/* Glassmorphic Container (Abstract Tech Visual / Blueprint) */}
-          <div className="relative w-full max-w-sm aspect-square md:aspect-video lg:aspect-square rounded-[2rem] border border-slate-200/80 dark:border-white/10 bg-white/80 dark:bg-zinc-900/40 backdrop-blur-md shadow-xl overflow-hidden flex items-center justify-center group transition-opacity duration-500">
+          <div className="relative w-full max-w-[340px] aspect-square md:aspect-video lg:aspect-square rounded-[2rem] border border-slate-200/80 dark:border-white/10 bg-white/80 dark:bg-zinc-900/40 backdrop-blur-md shadow-xl overflow-hidden flex items-center justify-center group transition-opacity duration-500">
 
             {/* Tech Wireframe / Grid Background */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#0284c7_1px,transparent_1px),linear-gradient(to_bottom,#0284c7_1px,transparent_1px)] bg-[size:24px_24px] opacity-[0.12] dark:opacity-[0.07] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]" />
