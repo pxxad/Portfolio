@@ -124,7 +124,7 @@ export default function Hero() {
             variants={fadeUpVariant}
             className="text-lg md:text-xl lg:text-2xl font-medium text-slate-700 dark:text-slate-300 max-w-2xl leading-relaxed mb-6"
           >
-            B.Tech Information Technology Student @ IIIT Lucknow
+            B.Tech Computer Science and Artificial Intelligence @ IIIT Lucknow
           </motion.h2>
 
           {/* Short Bio */}

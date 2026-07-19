@@ -17,15 +17,15 @@ const dsaRoadmap = [
 const profiles = [
   {
     href: "https://leetcode.com/u/prasad__jb/",
-    name: "LeetCode",
-    handle: "@prasad__jb",
+    name: "LeetCode (1613)",
+    handle: "@prasad_jb",
     icon: Trophy,
     color: "bg-amber-500/10 text-amber-600",
     delay: 0,
   },
   {
     href: "https://codeforces.com/profile/Prasad_jb",
-    name: "Codeforces",
+    name: "Codeforces (1201)",
     handle: "@Prasad_jb",
     icon: Award,
     color: "bg-sky-blue/10 text-sky-blue",
@@ -33,7 +33,7 @@ const profiles = [
   },
   {
     href: "https://www.codechef.com/users/prasad_jb",
-    name: "CodeChef",
+    name: "CodeChef (1533 | 2★)",
     handle: "@prasad_jb",
     icon: Code2,
     color: "bg-amber-800/10 text-amber-800",

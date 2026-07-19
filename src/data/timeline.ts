@@ -8,38 +8,38 @@ export interface TimelineEvent {
 
 export const timelineData: TimelineEvent[] = [
   {
-    year: "2024",
+    year: "2024 - Present",
     title: "IIIT Lucknow",
-    subtitle: "B.Tech in Information Technology",
-    description: "Began my academic journey at IIIT Lucknow. Got introduced to system internals, C++ programming, and foundational computer science concepts.",
+    subtitle: "B.Tech in Computer Science & AI",
+    description: "Began my academic journey pursuing CS & AI. Got introduced to system internals, C++ programming, and foundational computer science concepts.",
     category: "education"
   },
   {
-    year: "2025 (Early)",
-    title: "Web Engineering",
-    subtitle: "React & Modern Ecosystems",
-    description: "Fell in love with component architectures. Started building modern web experiences using React, Tailwind CSS, Node.js, and Express.",
+    year: "2025",
+    title: "Smart India Hackathon",
+    subtitle: "College Representative",
+    description: "Selected as the official College Representative for the national-level hackathon platform.",
     category: "coding"
   },
   {
-    year: "2025 (Mid)",
-    title: "Algorithmic Journey",
-    subtitle: "Data Structures & Grinding",
-    description: "Began solving problems seriously on LeetCode and Codeforces. Focused on dynamic programming, graph algorithms, and competitive coding logic.",
-    category: "coding"
-  },
-  {
-    year: "2025 (Late)",
-    title: "Open Source Era",
-    subtitle: "Contributing to stdlib & gprMax",
-    description: "Started reading large codebases. Submitted contributions to standard math utilities in JavaScript (stdlib) and explored scientific simulations (gprMax).",
+    year: "2025",
+    title: "GirlScript Summer of Code",
+    subtitle: "Open Source Contributor",
+    description: "Successfully contributed to open-source software repositories over a multi-month period during GSSoC'25.",
     category: "opensource"
   },
   {
-    year: "2026",
-    title: "Next-Gen Frameworks",
-    subtitle: "Next.js & PJB.DEV Portfolio Rebuild",
-    description: "Designed a premium Gen-Z glassmorphism user experience from scratch. Fully adopted Next.js App Router, Framer Motion, and high-performance Web APIs.",
+    year: "2025",
+    title: "Google Cloud Arcade",
+    subtitle: "Arcade Legend Tier",
+    description: "Achieved Arcade Legend Tier status through cloud infrastructure and baseline labs execution.",
     category: "project"
+  },
+  {
+    year: "2025",
+    title: "Gen AI Exchange Hackathon",
+    subtitle: "Participant",
+    description: "Successfully participated and collaborated within a project submission environment.",
+    category: "coding"
   }
 ];

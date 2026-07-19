@@ -6,9 +6,9 @@ import { skillsData, SkillCategory } from "@/data/skills";
 
 const categoryIcons: Record<string, any> = {
   "Languages": Code2,
-  "Frontend & UI": Layout,
-  "Tools & OS": Settings,
-  "Core & Focus": BrainCircuit
+  "Frameworks & Tech": Layout,
+  "Developer Tools": Settings,
+  "Coursework": BrainCircuit
 };
 
 import FadeIn from "./FadeIn";
