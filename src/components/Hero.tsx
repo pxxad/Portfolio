@@ -62,7 +62,8 @@ export default function Hero() {
           transition={{ duration: 40, repeat: Infinity, ease: "easeInOut" }}
           className="absolute inset-0 z-0 opacity-[0.45] dark:opacity-[0.55] mix-blend-overlay"
         >
-          <Image src="/images/pokemon/hero-bg-dark.jpg" alt="Hero background" fill sizes="100vw" className="object-cover object-[62%_center] w-full h-full" priority />
+          <Image src="/images/pokemon/hero-bg-light.jpg" alt="Hero background" fill sizes="100vw" className="object-cover object-[62%_center] w-full h-full dark:hidden" priority />
+          <Image src="/images/pokemon/hero-bg-dark.jpg" alt="Hero background dark" fill sizes="100vw" className="object-cover object-[62%_center] w-full h-full hidden dark:block" priority />
         </motion.div>
 
         {/* Layer 1: Deep Background Mist */}
