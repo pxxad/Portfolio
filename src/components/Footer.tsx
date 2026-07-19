@@ -58,10 +58,10 @@ export default function Footer() {
             <div className="flex flex-col gap-2.5 items-start md:items-end">
               <p className="text-[9px] uppercase tracking-[0.25em] text-white/40 font-mono font-bold">Social Connection</p>
               <div className="flex items-center gap-2">
-                <a href="https://github.com/pxxad" target="_blank" rel="noreferrer" className="px-3.5 py-2 text-xs font-mono rounded bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all text-white/90 font-medium backdrop-blur-md active:scale-95">
+                <a href="https://github.com/pxxad" target="_blank" rel="noopener noreferrer" className="px-3.5 py-2 text-xs font-mono rounded bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all text-white/90 font-medium backdrop-blur-md active:scale-95">
                   GitHub
                 </a>
-                <a href="https://linkedin.com/in/pxxad" target="_blank" rel="noreferrer" className="px-3.5 py-2 text-xs font-mono rounded bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all text-white/90 font-medium backdrop-blur-md active:scale-95">
+                <a href="https://linkedin.com/in/pxxad" target="_blank" rel="noopener noreferrer" className="px-3.5 py-2 text-xs font-mono rounded bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all text-white/90 font-medium backdrop-blur-md active:scale-95">
                   LinkedIn
                 </a>
                 <a href="mailto:pxxad@iiitl.ac.in" className="px-3.5 py-2 text-xs font-mono rounded bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all text-white/90 font-medium backdrop-blur-md active:scale-95">

@@ -90,7 +90,7 @@ export default function Contact() {
               </a>
 
               <a
-                href="https://<Linkedin.com/in/pxxad"
+                href="https://linkedin.com/in/pxxad"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-4 rounded-2xl bg-white/50 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 hover:bg-white/80 dark:hover:bg-white/10 hover:shadow-sm hover:translate-y-[-2px] transition-all duration-300 group"
