@@ -56,7 +56,7 @@ export const projectsData: Project[] = [
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     category: "Web Development",
     githubUrl: "https://github.com/pxxad/Portfolio",
-    liveUrl: "https://pbdev.vercel.app",
+    liveUrl: "https://prasadjb.me",
     gradient: "linear-gradient(135deg, #E2E8F0 0%, #A8C5F0 100%)",
     banner: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
   },

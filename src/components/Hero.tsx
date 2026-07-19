@@ -16,38 +16,6 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// ── Cursor Reactive Glow ─────────────────────────────────────────────────────
-function CursorGlow() {
-  const [pos, setPos] = useState({ x: -500, y: -500 });
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-    const handler = (e: MouseEvent) => {
-      const rect = section.getBoundingClientRect();
-      setPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-    };
-    section.addEventListener("mousemove", handler);
-    return () => section.removeEventListener("mousemove", handler);
-  }, []);
-
-  return (
-    <div ref={sectionRef} className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-      <div
-        className="absolute w-[600px] h-[600px] rounded-full pointer-events-none transition-opacity duration-300"
-        style={{
-          left: pos.x - 300,
-          top: pos.y - 300,
-          background: "radial-gradient(circle, rgba(124,92,252,0.08) 0%, rgba(110,168,254,0.03) 40%, transparent 70%)",
-          filter: "blur(40px)",
-          transform: "translateZ(0)",
-        }}
-      />
-    </div>
-  );
-}
-
 // ── Hero ─────────────────────────────────────────────────────────────────────
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -77,7 +45,7 @@ export default function Hero() {
 
   const fadeUpVariant = {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
   };
 
   return (
@@ -94,8 +62,7 @@ export default function Hero() {
           transition={{ duration: 40, repeat: Infinity, ease: "easeInOut" }}
           className="absolute inset-0 z-0 opacity-[0.45] dark:opacity-[0.55] mix-blend-overlay"
         >
-          <Image src="/images/pokemon/hero-bg-light.jpg" alt="Hero background" fill sizes="100vw" className="object-cover object-[62%_center] w-full h-full dark:hidden" priority />
-          <Image src="/images/pokemon/hero-bg-dark.jpg" alt="Hero background dark" fill sizes="100vw" className="object-cover object-[62%_center] w-full h-full hidden dark:block" priority />
+          <Image src="/images/pokemon/hero-bg-dark.jpg" alt="Hero background" fill sizes="100vw" className="object-cover object-[62%_center] w-full h-full" priority />
         </motion.div>
 
         {/* Layer 1: Deep Background Mist */}
@@ -118,7 +85,7 @@ export default function Hero() {
         />
       </div>
 
-      <CursorGlow />
+
 
       <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 relative z-10">
 

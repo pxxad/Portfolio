@@ -4,14 +4,21 @@ import path from "path";
 
 // Automate rename of loader asset during config load
 try {
-  const source = path.join(process.cwd(), "public/images/pokemon/loading-pikachu.gif.jfif");
-  const target = path.join(process.cwd(), "public/images/pokemon/thunder-pikachu-loader.gif");
-  if (fs.existsSync(source)) {
-    fs.renameSync(source, target);
-    console.log("Successfully renamed loading-pikachu.gif.jfif to thunder-pikachu-loader.gif");
-  }
+  const filesToRename = [
+    { src: "loading-pikachu.gif.jfif", dest: "thunder-pikachu-loader.gif" },
+    { src: "hero-bg-light.jfif", dest: "hero-bg-light.jpg" },
+    { src: "hero-laptop.jfif", dest: "hero-laptop.jpg" }
+  ];
+  filesToRename.forEach(({ src, dest }) => {
+    const sourcePath = path.join(process.cwd(), "public/images/pokemon", src);
+    const destPath = path.join(process.cwd(), "public/images/pokemon", dest);
+    if (fs.existsSync(sourcePath)) {
+      fs.renameSync(sourcePath, destPath);
+      console.log(`Successfully renamed ${src} to ${dest}`);
+    }
+  });
 } catch (err) {
-  console.error("Error renaming loader asset in next.config.ts:", err);
+  console.error("Error renaming assets in next.config.ts:", err);
 }
 
 const nextConfig: NextConfig = {

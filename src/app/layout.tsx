@@ -1,9 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import KonamiCode from "@/components/KonamiCode";
-import CursorAura from "@/components/CursorAura";
+
 import Loader from "@/components/Loader";
 import ThemeProvider from "@/components/ThemeProvider";
 
@@ -18,22 +24,23 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "B Prasad · Open Source Contributor & Builder",
-  description: "B.Tech IT student at IIIT Lucknow. Building premium web apps, contributing to open source, and solving algorithmic problems.",
+  metadataBase: new URL("https://prasadjb.me"),
+  title: "B. Prasad | B.Tech IT Student @ IIIT Lucknow",
+  description: "Portfolio of B. Prasad — B.Tech Information Technology student at IIIT Lucknow, Open Source Contributor, Competitive Programmer, and Full Stack Developer.",
   keywords: ["B Prasad", "IIIT Lucknow", "Builder", "Open Source Contributor", "pxxad", "PJB.DEV"],
   authors: [{ name: "B Prasad" }],
   openGraph: {
-    title: "B Prasad · Open Source Contributor & Builder",
-    description: "B.Tech IT student at IIIT Lucknow. Building premium web apps, contributing to open source, and solving algorithmic problems.",
-    url: "https://pbdev.vercel.app",
+    title: "B. Prasad | B.Tech IT Student @ IIIT Lucknow",
+    description: "Portfolio of B. Prasad — B.Tech Information Technology student at IIIT Lucknow, Open Source Contributor, Competitive Programmer, and Full Stack Developer.",
+    url: "https://prasadjb.me",
     siteName: "PJB.DEV Portfolio",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "B Prasad · Open Source Contributor & Builder",
-    description: "B.Tech IT student at IIIT Lucknow. Building premium web apps, contributing to open source, and solving algorithmic problems.",
+    title: "B. Prasad | B.Tech IT Student @ IIIT Lucknow",
+    description: "Portfolio of B. Prasad — B.Tech Information Technology student at IIIT Lucknow, Open Source Contributor, Competitive Programmer, and Full Stack Developer.",
   }
 };
 
@@ -51,9 +58,9 @@ export default function RootLayout({
             {children}
           </SmoothScroll>
           <KonamiCode />
-          <CursorAura />
         </ThemeProvider>
       </body>
     </html>
   );
 }
+

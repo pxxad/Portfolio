@@ -12,10 +12,10 @@ import LoadingScreen from "@/components/LoadingScreen";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen w-full overflow-hidden">
       <LoadingScreen />
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow w-full">
         <Hero />
         <About />
         <Projects />
