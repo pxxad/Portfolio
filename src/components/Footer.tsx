@@ -37,34 +37,43 @@ export default function Footer() {
           {/* Center Column: Enhanced Glass Panel Index Directory Buttons */}
           <div className="flex flex-col gap-2.5 justify-self-start md:justify-self-center items-start md:items-center w-full md:w-auto">
             <p className="text-[9px] uppercase tracking-[0.25em] text-white/40 font-mono font-bold md:text-center">Index Directory</p>
-            <nav className="flex flex-wrap items-center justify-start md:justify-center gap-2 text-xs font-mono">
-              <a href="#root" className="px-3.5 py-2 rounded bg-black/50 border border-white/10 text-white/90 font-medium hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-black/80 transition-all duration-200 shadow-md backdrop-blur-md active:scale-95">
+            <nav className="flex flex-wrap items-center justify-start md:justify-center gap-2 text-xs font-mono w-full">
+              <a href="#home" className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded bg-black/50 border border-white/10 text-white/90 font-medium hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-black/80 transition-all duration-200 shadow-md backdrop-blur-md active:scale-95">
                 root_dir
               </a>
-              <a href="#works" className="px-3.5 py-2 rounded bg-black/50 border border-white/10 text-white/90 font-medium hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-black/80 transition-all duration-200 shadow-md backdrop-blur-md active:scale-95">
+              <a href="#projects" className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded bg-black/50 border border-white/10 text-white/90 font-medium hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-black/80 transition-all duration-200 shadow-md backdrop-blur-md active:scale-95">
                 selected_works
               </a>
-              <a href="#stack" className="px-3.5 py-2 rounded bg-black/50 border border-white/10 text-white/90 font-medium hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-black/80 transition-all duration-200 shadow-md backdrop-blur-md active:scale-95">
+              <a href="#skills" className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded bg-black/50 border border-white/10 text-white/90 font-medium hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-black/80 transition-all duration-200 shadow-md backdrop-blur-md active:scale-95">
                 core_stack
               </a>
-              <a href="#algorithms" className="px-3.5 py-2 rounded bg-black/50 border border-white/10 text-white/90 font-medium hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-black/80 transition-all duration-200 shadow-md backdrop-blur-md active:scale-95">
+              <a href="#dsa" className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded bg-black/50 border border-white/10 text-white/90 font-medium hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-black/80 transition-all duration-200 shadow-md backdrop-blur-md active:scale-95">
                 algorithms
+              </a>
+              <a href="#timeline" className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded bg-black/50 border border-white/10 text-white/90 font-medium hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-black/80 transition-all duration-200 shadow-md backdrop-blur-md active:scale-95">
+                timeline
+              </a>
+              <a href="#contact" className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded bg-black/50 border border-white/10 text-white/90 font-medium hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-black/80 transition-all duration-200 shadow-md backdrop-blur-md active:scale-95">
+                contact
               </a>
             </nav>
           </div>
 
           {/* Right Column: Social Redirections & Availability Badges */}
           <div className="flex flex-col gap-4 items-start md:items-end justify-self-start md:justify-self-end w-full md:w-auto">
-            <div className="flex flex-col gap-2.5 items-start md:items-end">
-              <p className="text-[9px] uppercase tracking-[0.25em] text-white/40 font-mono font-bold">Social Connection</p>
-              <div className="flex items-center gap-2">
-                <a href="https://github.com/pxxad" target="_blank" rel="noopener noreferrer" className="px-3.5 py-2 text-xs font-mono rounded bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all text-white/90 font-medium backdrop-blur-md active:scale-95">
+            <div className="flex flex-col gap-2.5 items-start md:items-end w-full">
+              <p className="text-[9px] uppercase tracking-[0.25em] text-white/40 font-mono font-bold">Social & Connect</p>
+              <div className="flex flex-wrap items-center gap-2">
+                <a href="https://github.com/pxxad" target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs font-mono rounded bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all text-white/90 font-medium backdrop-blur-md active:scale-95">
                   GitHub
                 </a>
-                <a href="https://linkedin.com/in/pxxad" target="_blank" rel="noopener noreferrer" className="px-3.5 py-2 text-xs font-mono rounded bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all text-white/90 font-medium backdrop-blur-md active:scale-95">
+                <a href="https://www.linkedin.com/in/prasad-jb-a67416339/" target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs font-mono rounded bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all text-white/90 font-medium backdrop-blur-md active:scale-95">
                   LinkedIn
                 </a>
-                <a href="mailto:pxxad@iiitl.ac.in" className="px-3.5 py-2 text-xs font-mono rounded bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all text-white/90 font-medium backdrop-blur-md active:scale-95">
+                <a href="/Resume_prasadJB.pdf" target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs font-mono rounded bg-rose-500/20 border border-rose-400/30 hover:border-rose-400/60 hover:bg-rose-500/30 transition-all text-white font-medium backdrop-blur-md active:scale-95">
+                  Resume
+                </a>
+                <a href="mailto:pxxad@iiitl.ac.in" className="px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs font-mono rounded bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all text-white/90 font-medium backdrop-blur-md active:scale-95">
                   Email
                 </a>
               </div>

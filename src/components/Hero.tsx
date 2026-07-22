@@ -167,7 +167,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="https://linkedin.com/in/pxxad"
+              href="https://www.linkedin.com/in/prasad-jb-a67416339/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 font-mono font-bold uppercase tracking-wider text-xs rounded-full bg-slate-100 dark:bg-white/5 text-slate-900 dark:text-white border border-slate-200 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-white/10 transition-all duration-300 hover:scale-[1.02]"
