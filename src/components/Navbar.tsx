@@ -62,19 +62,15 @@ export default function Navbar() {
             <Link
               href="/#home"
               onClick={(e) => handleNavClick(e, "/#home")}
-              className="text-sm md:text-base font-extrabold tracking-tight text-slate-900 dark:text-white transition-colors duration-300 hover:opacity-80 flex items-center gap-2 md:gap-3 z-50 shrink-0 font-mono group"
+              className="text-sm md:text-base font-extrabold tracking-tight text-slate-900 dark:text-white transition-colors duration-300 hover:opacity-80 flex items-center gap-[12px] z-50 shrink-0 font-mono group"
             >
-              <div className="relative w-[28px] h-[28px] md:w-[36px] md:h-[36px] group-hover:rotate-6 group-hover:scale-105 transition-all duration-[250ms] ease-out shrink-0">
+              <div className="relative w-[30px] h-[30px] md:w-[34px] md:h-[34px] group-hover:rotate-[4deg] group-hover:scale-105 transition-transform duration-[250ms] ease-out shrink-0 flex items-center justify-center">
                 <Image
-                  src="/images/pikachu-glasses.webp"
+                  src="/images/mascot-vector.svg"
                   alt="Mascot"
                   fill
                   className="object-contain"
                 />
-              </div>
-              <div className="relative flex items-center justify-center w-2 h-2 md:w-2.5 md:h-2.5 hidden">
-                <span className="absolute inline-flex w-full h-full rounded-full bg-violet-600 dark:bg-violet-400 animate-pulse opacity-40" />
-                <span className="relative inline-flex rounded-full w-1.5 h-1.5 md:w-2 md:h-2 bg-violet-600 dark:bg-violet-400" />
               </div>
               <span className="flex items-center gap-1.5">
                 <div className="relative flex items-center justify-center w-2 h-2 md:w-2.5 md:h-2.5">
