@@ -44,6 +44,7 @@ body {
   color: var(--foreground);
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: url('/rocket-cursor.png') 0 0, auto;
 }
 
 /* Custom Utilities */
