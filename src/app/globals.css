@@ -47,8 +47,16 @@ body {
   cursor: url('/images/pokeball-pointer.png') 16 16, auto;
 }
 
+body:active, *:active {
+  cursor: url('/images/pokeball-cursor.png') 16 16, auto !important;
+}
+
 a, button, [role="button"], input, select, textarea, .cursor-pointer {
   cursor: url('/images/pokeball-cursor.png') 16 16, pointer !important;
+}
+
+a:active, button:active, [role="button"]:active, input:active, select:active, textarea:active, .cursor-pointer:active {
+  cursor: url('/images/pokeball-pointer.png') 16 16, pointer !important;
 }
 
 
