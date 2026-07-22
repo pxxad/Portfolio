@@ -44,7 +44,10 @@ body {
   color: var(--foreground);
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
-  cursor: url('/cursor.png') 0 0, auto;
+}
+
+* {
+  cursor: url('/cursor.png') 16 16, auto !important;
 }
 
 /* Custom Utilities */
