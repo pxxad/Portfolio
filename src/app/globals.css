@@ -44,11 +44,11 @@ body {
   color: var(--foreground);
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
-  cursor: url('/images/pokeball-cursor.png') 16 16, auto;
+  cursor: url('/images/pokeball-pointer.png') 16 16, auto;
 }
 
 a, button, [role="button"], input, select, textarea, .cursor-pointer {
-  cursor: url('/images/pokeball-pointer.png') 16 16, pointer !important;
+  cursor: url('/images/pokeball-cursor.png') 16 16, pointer !important;
 }
 
 
