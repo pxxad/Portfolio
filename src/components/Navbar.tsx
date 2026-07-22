@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 
@@ -61,13 +62,27 @@ export default function Navbar() {
             <Link
               href="/#home"
               onClick={(e) => handleNavClick(e, "/#home")}
-              className="text-sm md:text-base font-extrabold tracking-tight text-slate-900 dark:text-white transition-colors duration-300 hover:opacity-80 flex items-center gap-2 z-50 shrink-0 font-mono"
+              className="text-sm md:text-base font-extrabold tracking-tight text-slate-900 dark:text-white transition-colors duration-300 hover:opacity-80 flex items-center gap-2 md:gap-3 z-50 shrink-0 font-mono group"
             >
-              <div className="relative flex items-center justify-center w-2 h-2 md:w-2.5 md:h-2.5">
+              <div className="relative w-[28px] h-[28px] md:w-[36px] md:h-[36px] group-hover:rotate-6 group-hover:scale-105 transition-all duration-[250ms] ease-out shrink-0">
+                <Image
+                  src="/images/pikachu-glasses.webp"
+                  alt="Mascot"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="relative flex items-center justify-center w-2 h-2 md:w-2.5 md:h-2.5 hidden">
                 <span className="absolute inline-flex w-full h-full rounded-full bg-violet-600 dark:bg-violet-400 animate-pulse opacity-40" />
                 <span className="relative inline-flex rounded-full w-1.5 h-1.5 md:w-2 md:h-2 bg-violet-600 dark:bg-violet-400" />
               </div>
-              <span>PJB<span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-500 dark:from-violet-400 dark:to-cyan-400">.DEV</span></span>
+              <span className="flex items-center gap-1.5">
+                <div className="relative flex items-center justify-center w-2 h-2 md:w-2.5 md:h-2.5">
+                  <span className="absolute inline-flex w-full h-full rounded-full bg-violet-600 dark:bg-violet-400 animate-pulse opacity-40" />
+                  <span className="relative inline-flex rounded-full w-1.5 h-1.5 md:w-2 md:h-2 bg-violet-600 dark:bg-violet-400" />
+                </div>
+                PJB<span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-500 dark:from-violet-400 dark:to-cyan-400">.DEV</span>
+              </span>
             </Link>
 
             {/* Desktop Navigation Links */}

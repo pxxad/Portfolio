@@ -174,6 +174,15 @@ export default function Hero() {
             >
               <LinkedinIcon className="w-4 h-4" /> LinkedIn
             </a>
+
+            <div className="relative w-10 h-10 ml-2 opacity-90 hidden sm:block pointer-events-none">
+              <Image
+                src="/images/pikachu-glasses.webp"
+                alt="Mascot"
+                fill
+                className="object-contain"
+              />
+            </div>
           </motion.div>
         </motion.div>
 
