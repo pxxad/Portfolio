@@ -124,7 +124,7 @@ export default function Hero() {
             variants={fadeUpVariant}
             className="text-lg md:text-xl lg:text-2xl font-medium text-slate-700 dark:text-slate-300 max-w-2xl leading-relaxed mb-6"
           >
-            B.Tech Computer Science and Artificial Intelligence @ IIIT Lucknow
+            B.Tech Information Technology @ IIIT Lucknow
           </motion.h2>
 
           {/* Short Bio */}
@@ -141,7 +141,7 @@ export default function Hero() {
             className="flex flex-wrap justify-center lg:justify-start items-center gap-4 w-full"
           >
             <a
-              href="/images/updated resume.pdf"
+              href="/Resume_prasadJB.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 font-mono font-bold tracking-wider text-xs rounded-full bg-text-primary text-brand-bg hover:bg-text-secondary transition-all duration-300 hover:scale-110 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.2)]"

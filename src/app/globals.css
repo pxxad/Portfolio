@@ -46,8 +46,10 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-* {
-  cursor: url('/cursor.png') 16 16, auto !important;
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
 }
 
 /* Custom Utilities */

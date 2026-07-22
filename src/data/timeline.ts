@@ -10,8 +10,8 @@ export const timelineData: TimelineEvent[] = [
   {
     year: "2024 - Present",
     title: "IIIT Lucknow",
-    subtitle: "B.Tech in Computer Science & AI",
-    description: "Began my academic journey pursuing CS & AI. Got introduced to system internals, C++ programming, and foundational computer science concepts.",
+    subtitle: "B.Tech in Information Technology",
+    description: "Began my academic journey pursuing Information Technology. Got introduced to system internals, C++ programming, and foundational computer science concepts.",
     category: "education"
   },
   {

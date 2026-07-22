@@ -8,7 +8,7 @@ const stories = [
   {
     icon: GraduationCap,
     title: "Stepping into IIIT Lucknow",
-    description: "In 2024, I joined IIIT Lucknow to pursue my B.Tech in Computer Science and Artificial Intelligence. Stepping onto campus opened up a world of computer science fundamentals, low-level architecture, and collaborative engineering environments.",
+    description: "In 2024, I joined IIIT Lucknow to pursue my B.Tech in Information Technology. Stepping onto campus opened up a world of computer science fundamentals, low-level architecture, and collaborative engineering environments.",
     color: "bg-sky-blue/10 text-sky-blue"
   },
   {

@@ -8,6 +8,7 @@ import KonamiCode from "@/components/KonamiCode";
 
 import Loader from "@/components/Loader";
 import ThemeProvider from "@/components/ThemeProvider";
+import Cursor from "@/components/Cursor";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -27,13 +28,13 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://prasadjb.me"),
-  title: "B. Prasad | B.Tech CS & AI Student @ IIIT Lucknow",
-  description: "Portfolio of B. Prasad — B.Tech Computer Science and Artificial Intelligence student at IIIT Lucknow, Open Source Contributor, Competitive Programmer, and Full Stack Developer.",
+  title: "B. Prasad | B.Tech IT Student @ IIIT Lucknow",
+  description: "Portfolio of B. Prasad — B.Tech Information Technology student at IIIT Lucknow, Open Source Contributor, Competitive Programmer, and Full Stack Developer.",
   keywords: ["B Prasad", "IIIT Lucknow", "Builder", "Open Source Contributor", "pxxad", "PJB.DEV"],
   authors: [{ name: "B Prasad" }],
   openGraph: {
-    title: "B. Prasad | B.Tech CS & AI Student @ IIIT Lucknow",
-    description: "Portfolio of B. Prasad — B.Tech Computer Science and Artificial Intelligence student at IIIT Lucknow, Open Source Contributor, Competitive Programmer, and Full Stack Developer.",
+    title: "B. Prasad | B.Tech IT Student @ IIIT Lucknow",
+    description: "Portfolio of B. Prasad — B.Tech Information Technology student at IIIT Lucknow, Open Source Contributor, Competitive Programmer, and Full Stack Developer.",
     url: "https://prasadjb.me",
     siteName: "PJB.DEV Portfolio",
     locale: "en_US",
@@ -41,8 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "B. Prasad | B.Tech CS & AI Student @ IIIT Lucknow",
-    description: "Portfolio of B. Prasad — B.Tech Computer Science and Artificial Intelligence student at IIIT Lucknow, Open Source Contributor, Competitive Programmer, and Full Stack Developer.",
+    title: "B. Prasad | B.Tech IT Student @ IIIT Lucknow",
+    description: "Portfolio of B. Prasad — B.Tech Information Technology student at IIIT Lucknow, Open Source Contributor, Competitive Programmer, and Full Stack Developer.",
   }
 };
 
@@ -55,6 +56,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased font-sans bg-brand-bg text-text-primary">
         <ThemeProvider>
+          <Cursor />
           <Loader />
           <SmoothScroll>
             {children}
