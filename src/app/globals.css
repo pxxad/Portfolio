@@ -46,11 +46,6 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-@media (pointer: fine) {
-  * {
-    cursor: none !important;
-  }
-}
 
 /* Custom Utilities */
 .glass-card {

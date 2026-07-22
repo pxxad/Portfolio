@@ -8,7 +8,6 @@ import KonamiCode from "@/components/KonamiCode";
 
 import Loader from "@/components/Loader";
 import ThemeProvider from "@/components/ThemeProvider";
-import Cursor from "@/components/Cursor";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -56,7 +55,6 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased font-sans bg-brand-bg text-text-primary">
         <ThemeProvider>
-          <Cursor />
           <Loader />
           <SmoothScroll>
             {children}
