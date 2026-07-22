@@ -6,7 +6,16 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import Navbar from "@/components/Navbar";
 
-const wallMessages = [
+import { useEffect, useState } from "react";
+
+interface WallMessageItem {
+  id: number | string;
+  text: string;
+  author: string;
+  date: string;
+}
+
+const wallMessages: WallMessageItem[] = [
   { id: 1, text: "Your Codeforces journey section is motivating.", author: "Visitor", date: "Recently" },
   { id: 2, text: "Didn't expect a Pokémon-themed portfolio to look this clean.", author: "Anonymous", date: "Recently" },
   { id: 3, text: "Found this through GitHub. Nice work!", author: "Developer", date: "Recently" },
@@ -18,6 +27,19 @@ const wallMessages = [
 ];
 
 export default function WallPage() {
+  const [allMessages, setAllMessages] = useState<WallMessageItem[]>(wallMessages);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("pjb_wall_notes");
+      if (stored) {
+        const parsed: WallMessageItem[] = JSON.parse(stored);
+        setAllMessages([...parsed, ...wallMessages]);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }, []);
   return (
     <>
       <Navbar />
@@ -51,7 +73,7 @@ export default function WallPage() {
 
         {/* Masonry Grid for Messages */}
         <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          {wallMessages.map((msg, idx) => (
+          {allMessages.map((msg, idx) => (
             <FadeIn key={msg.id} delay={0.3 + (idx * 0.1)} yOffset={20} className="break-inside-avoid">
               <div className="glass-card p-6 rounded-3xl border border-white/10 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-md group relative overflow-hidden">
                 {/* Subtle gradient hover */}

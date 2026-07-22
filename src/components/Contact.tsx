@@ -12,12 +12,31 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Open mailto as a simple, no-backend solution
-    const subject = encodeURIComponent(`Note from ${name || "Someone"}`);
-    const body = encodeURIComponent(message);
-    window.open(`mailto:pxxad@iiitl.ac.in?subject=${subject}&body=${body}`, "_blank");
+    if (!message.trim()) return;
+
+    const newNote = {
+      id: `wall-note-${Date.now()}`,
+      text: message.trim(),
+      author: name.trim() || "Anonymous",
+      date: "Just now",
+    };
+
+    try {
+      const stored = localStorage.getItem("pjb_wall_notes");
+      const existing = stored ? JSON.parse(stored) : [];
+      localStorage.setItem("pjb_wall_notes", JSON.stringify([newNote, ...existing]));
+    } catch (err) {
+      console.error(err);
+    }
+
     setSent(true);
-    setTimeout(() => setSent(false), 3000);
+    setName("");
+    setMessage("");
+
+    // Redirect to the Wall page after brief feedback
+    setTimeout(() => {
+      window.location.href = "/wall";
+    }, 1200);
   };
 
   return (
@@ -130,14 +149,14 @@ export default function Contact() {
               {/* Name */}
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="note-name" className="text-[11px] font-bold font-mono tracking-wider text-text-secondary uppercase">
-                  Name
+                  Name <span className="text-text-secondary/50 font-normal">(Optional — defaults to Anonymous)</span>
                 </label>
                 <input
                   id="note-name"
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Your name"
+                  placeholder="Your name or handle"
                   className="w-full px-4 py-3 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200/60 dark:border-white/8 text-sm text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-sky-blue/40 transition-all font-mono"
                 />
               </div>
