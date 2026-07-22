@@ -6,31 +6,31 @@
 
 export const pokemonAssets = {
   // Hero / UI
-  spark:        "/images/pokemon/spark-pikachu.jpg",
-  thunderPikachuLoader: "/images/pokemon/thunder-pikachu-loader.mp4",
+  spark:        "https://res.cloudinary.com/li5wzmgq/image/upload/f_auto,q_auto/portfolio/spark-pikachu.jpg",
+  thunderPikachuLoader: "https://res.cloudinary.com/li5wzmgq/video/upload/f_auto,q_auto/portfolio/thunder-pikachu-loader.mp4",
 
   // Theme toggle
-  gengar:       "/images/pokemon/gengar-toggle.jpg",
+  gengar:       "https://res.cloudinary.com/li5wzmgq/image/upload/f_auto,q_auto/portfolio/gengar-toggle.jpg",
 
   // Footer
-  snorlax:      "/images/pokemon/snorlax-footer.jpg",
-  chikorita:    "/images/pokemon/chikorita-signature.jpg",
-  footerCar:    "/images/pokemon/footer_car.jpg",
+  snorlax:      "https://res.cloudinary.com/li5wzmgq/image/upload/f_auto,q_auto/portfolio/snorlax-footer.jpg",
+  chikorita:    "https://res.cloudinary.com/li5wzmgq/image/upload/f_auto,q_auto/portfolio/chikorita-signature.jpg",
+  footerCar:    "https://res.cloudinary.com/li5wzmgq/image/upload/f_auto,q_auto/portfolio/footer_car.jpg",
 
   // Easter egg
-  squirtle:     "/images/pokemon/squirtle-easteregg.jpg",
+  squirtle:     "https://res.cloudinary.com/li5wzmgq/image/upload/f_auto,q_auto/portfolio/squirtle-easteregg.jpg",
 
   // Timeline
-  pokemonTower: "/images/pokemon/pokemon-tower.jpg",
+  pokemonTower: "https://res.cloudinary.com/li5wzmgq/image/upload/f_auto,q_auto/portfolio/pokemon-tower.jpg",
 
   // 404 page
-  psyduck:      "/images/pokemon/psyduck-404.jpg",
+  psyduck:      "https://res.cloudinary.com/li5wzmgq/image/upload/f_auto,q_auto/portfolio/psyduck-404.jpg",
 
   // DSA section
-  ashAura:      "/images/pokemon/ash-dsa-new.png",
+  ashAura:      "https://res.cloudinary.com/li5wzmgq/image/upload/f_auto,q_auto/portfolio/ash-dsa-new.png",
 
   // About section
-  bulbasaur:    "/images/pokemon/bulbasaur-about.jpg",
+  bulbasaur:    "https://res.cloudinary.com/li5wzmgq/image/upload/f_auto,q_auto/portfolio/bulbasaur-about.jpg",
 } as const;
 
 export type PokemonAssetKey = keyof typeof pokemonAssets;

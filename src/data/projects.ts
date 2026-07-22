@@ -46,7 +46,7 @@ export const projectsData: Project[] = [
     githubUrl: "https://github.com/pxxad/dynamic-qr",
     liveUrl: null,
     gradient: "linear-gradient(135deg, #FFFFFF 0%, #D4CCF0 100%)",
-    banner: "/images/pokemon/pokeball-blueprint.jfif"
+    banner: "https://res.cloudinary.com/li5wzmgq/image/upload/f_auto,q_auto/portfolio/pokeball-blueprint.jpg"
   },
   {
     id: "portfolio-v2",

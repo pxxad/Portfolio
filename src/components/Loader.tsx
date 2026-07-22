@@ -57,7 +57,7 @@ export default function Loader() {
                 {/* THE WIDESCREEN CONTAINER FRAME */}
                 <div className="relative w-80 h-48 sm:w-[500px] sm:h-[280px] md:w-[680px] md:h-[380px] rounded-2xl border border-purple-500/50 shadow-[0_0_50px_rgba(168,85,247,0.25)] bg-black overflow-hidden flex items-center justify-center z-10">
                   <video 
-                    src="/images/pokemon/thunder-pikachu-loader.mp4" 
+                    src="https://res.cloudinary.com/li5wzmgq/video/upload/f_auto,q_auto/portfolio/thunder-pikachu-loader.mp4" 
                     autoPlay 
                     muted 
                     playsInline

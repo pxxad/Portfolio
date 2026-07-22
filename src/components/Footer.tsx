@@ -10,7 +10,7 @@ export default function Footer() {
 
       {/* Background Image */}
       <img
-        src="/images/pokemon/footer_car.jpg"
+        src="https://res.cloudinary.com/li5wzmgq/image/upload/f_auto,q_auto/portfolio/footer_car.jpg"
         className="absolute inset-0 w-full h-full object-cover object-[center_18%] pointer-events-none z-0"
         alt="Footer Background"
       />
