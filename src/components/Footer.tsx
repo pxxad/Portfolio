@@ -67,7 +67,7 @@ export default function Footer() {
                 <a href="/Resume_prasadJB.pdf" target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs font-mono rounded bg-rose-500/20 border border-rose-400/30 hover:border-rose-400/60 hover:bg-rose-500/30 transition-all text-white font-medium backdrop-blur-md active:scale-95">
                   Resume
                 </a>
-                <a href="mailto:pxxad@iiitl.ac.in" className="px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs font-mono rounded bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all text-white/90 font-medium backdrop-blur-md active:scale-95">
+                <a href="mailto:prasadjb24@gmail.com" className="px-3 py-1.5 sm:px-3.5 sm:py-2 text-xs font-mono rounded bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/15 transition-all text-white/90 font-medium backdrop-blur-md active:scale-95">
                   Email
                 </a>
               </div>

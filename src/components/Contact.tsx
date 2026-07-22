@@ -96,7 +96,7 @@ export default function Contact() {
             {/* Social Grid — compact */}
             <div className="grid grid-cols-2 gap-3">
               <a
-                href="mailto:pxxad@iiitl.ac.in"
+                href="mailto:prasadjb24@gmail.com"
                 className="flex items-center gap-3 p-4 rounded-2xl bg-white/50 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 hover:bg-white/80 dark:hover:bg-white/10 hover:shadow-sm hover:translate-y-[-2px] transition-all duration-300 group"
               >
                 <div className="w-10 h-10 rounded-xl bg-sky-blue/10 text-sky-blue flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -158,7 +158,7 @@ export default function Contact() {
               {/* Name */}
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="note-name" className="text-[11px] font-bold font-mono tracking-wider text-text-secondary uppercase">
-                  Name <span className="text-text-secondary/50 font-normal">(Optional — defaults to Anonymous)</span>
+                  Name
                 </label>
                 <input
                   id="note-name"
@@ -166,7 +166,7 @@ export default function Contact() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Your name or handle"
+                  placeholder="Anonymous by default"
                   className="w-full px-4 py-3 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200/60 dark:border-white/8 text-sm text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-sky-blue/40 transition-all font-mono"
                 />
               </div>
@@ -181,7 +181,7 @@ export default function Contact() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Drop a thought, feedback, or just say hi 👋 (Press Enter to send)"
+                  placeholder="Drop a thought, feedback, or just say hi 👋"
                   rows={4}
                   className="w-full px-4 py-3 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200/60 dark:border-white/8 text-sm text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-sky-blue/40 transition-all resize-none font-mono"
                 />
