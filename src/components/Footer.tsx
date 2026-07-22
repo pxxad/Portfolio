@@ -50,12 +50,6 @@ export default function Footer() {
               <a href="#dsa" className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded bg-black/50 border border-white/10 text-white/90 font-medium hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-black/80 transition-all duration-200 shadow-md backdrop-blur-md active:scale-95">
                 algorithms
               </a>
-              <a href="#timeline" className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded bg-black/50 border border-white/10 text-white/90 font-medium hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-black/80 transition-all duration-200 shadow-md backdrop-blur-md active:scale-95">
-                timeline
-              </a>
-              <a href="#contact" className="px-3 py-1.5 sm:px-3.5 sm:py-2 rounded bg-black/50 border border-white/10 text-white/90 font-medium hover:text-cyan-400 hover:border-cyan-400/50 hover:bg-black/80 transition-all duration-200 shadow-md backdrop-blur-md active:scale-95">
-                contact
-              </a>
             </nav>
           </div>
 
