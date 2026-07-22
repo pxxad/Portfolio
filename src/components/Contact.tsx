@@ -39,6 +39,15 @@ export default function Contact() {
     }, 1200);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      if (message.trim()) {
+        handleSubmit(e);
+      }
+    }
+  };
+
   return (
     <section id="contact" className="py-32 bg-slate-50 dark:bg-brand-alt relative overflow-hidden transition-colors duration-300">
       {/* Background soft blurs */}
@@ -156,6 +165,7 @@ export default function Contact() {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  onKeyDown={handleKeyDown}
                   placeholder="Your name or handle"
                   className="w-full px-4 py-3 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200/60 dark:border-white/8 text-sm text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-sky-blue/40 transition-all font-mono"
                 />
@@ -170,7 +180,8 @@ export default function Contact() {
                   id="note-message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Drop a thought, feedback, or just say hi 👋"
+                  onKeyDown={handleKeyDown}
+                  placeholder="Drop a thought, feedback, or just say hi 👋 (Press Enter to send)"
                   rows={4}
                   className="w-full px-4 py-3 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200/60 dark:border-white/8 text-sm text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-sky-blue/40 transition-all resize-none font-mono"
                 />
