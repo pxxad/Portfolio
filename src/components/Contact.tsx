@@ -130,7 +130,7 @@ export default function Contact() {
               </a>
 
               <a
-                href="/Resume_prasadJB.pdf"
+                href="/Resume_prasadJB.pdf?v=2"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-4 rounded-2xl bg-white/50 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 hover:bg-white/80 dark:hover:bg-white/10 hover:shadow-sm hover:translate-y-[-2px] transition-all duration-300 group"
