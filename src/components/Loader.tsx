@@ -27,11 +27,11 @@ export default function Loader() {
       // 1. Instantly lock body scroll to keep the viewport perfectly static
       document.body.style.overflow = "hidden";
   
-      // 2. Exact 6-second timeline window to play the uncut video track completely
+      // 2. 3.5-second loading window — snappy but not rushed
       const timer = setTimeout(() => {
         setIsLoading(false);
         document.body.style.overflow = "unset";
-      }, 6000);
+      }, 3500);
   
       return () => {
         clearTimeout(timer);
@@ -61,8 +61,7 @@ export default function Loader() {
                     autoPlay 
                     muted 
                     playsInline
-                    className="w-full h-full object-contain -rotate-90 scale-[1.35]"
-                    style={{ minWidth: '100%', minHeight: '100%' }}
+                    className="w-full h-full object-cover"
                   />
                 </div>
         
@@ -82,7 +81,7 @@ export default function Loader() {
                 <div 
                   className="h-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400" 
                   style={{
-                    animation: "progressAnimation 6s linear forwards"
+                    animation: "progressAnimation 3.5s linear forwards"
                   }} 
                 />
               </div>
