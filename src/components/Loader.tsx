@@ -61,7 +61,8 @@ export default function Loader() {
                     autoPlay 
                     muted 
                     playsInline
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain -rotate-90 scale-[1.35]"
+                    style={{ minWidth: '100%', minHeight: '100%' }}
                   />
                 </div>
         
